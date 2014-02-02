@@ -1,0 +1,1450 @@
+<!-- last edited by Scott Alexander Malec -->
+
+<!-- PFTML DTD-->
+
+<!-- Last Modified 05.16.2002-->
+
+<!-- ****************** -->
+
+<!-- ****************** -->
+
+<!ELEMENT Corpus (Folktale?)+>
+
+<!-- ****************** -->
+
+<!-- ****************** -->
+
+<!--Folktale CONTENT MODEL-->
+
+<!ELEMENT Folktale (Move+)>
+
+<!ATTLIST Folktale
+
+	Title CDATA #REQUIRED
+
+	NewAfanasievEditionNumber CDATA #IMPLIED
+
+	ProppConformity (Yes | 
+
+	
+
+	No | 
+
+	
+
+	Approx) #IMPLIED
+
+	AT CDATA #IMPLIED
+
+>
+
+<!--      "Morphologically, a tale (skazka) may be termed any development proceeding from villainy (A) or a lack
+
+(a), through intermediary functions to marriage (W*),  or to other functions employed as a denouement.  Terminal
+
+functions are at  times a reward (F), a gain or in general the liquidation of misfortune (K), an escape from pursuit
+
+(Rs), etc.  This type of development is termed by us a move (khod).  Each new act of villainy, each new lack
+
+creates a new move ....  when analyzing a text, one must first of all determine the number of moves of which a
+
+tale consists....  However, if we have conditionally defined the tale as a move, this still does not mean that the
+
+number of moves corresponds to the number of tales.  Special devices of parallelism,  repetitions, etc., lead to
+
+the fact that one tale may be composed of several  moves." pg. 92, "the Ways in which Stories are
+
+Combined" -->
+
+<!-- ********************** -->
+
+<!ELEMENT Move (Preparation?, 
+
+
+
+	(DonorFunction?, 
+
+	
+
+	HeroReaction?, 
+
+	
+
+	AcquisitionOfMagicalAgent?)*, 
+
+	
+
+	(Villainy | 
+
+	
+
+	Lack)?, 
+
+	
+
+	ConnectiveIncident?, 
+
+	
+
+	ConsentToCounteraction?, 
+
+	
+
+	Move?, 
+
+	
+
+	Departure?, 
+
+	
+
+	DonorFunction?, 
+
+	
+
+	(DonorFunction?, 
+
+	
+
+	HeroReaction?, 
+
+	
+
+	AcquisitionOfMagicalAgent?)*, 
+
+	
+
+	Transference?,
+
+	
+
+	 (((StruggleVictory, 
+
+	 
+
+	 (StruggleVictory, 
+
+	 
+
+	 StruggleVictory)?)?, 
+
+	 
+
+	 LiquidationOfLack?, 
+
+	 
+
+	 Move?, 
+
+	 
+
+	 Return?, 
+
+	 
+
+	 PursuitRescueOfHero?, 
+
+	 
+
+	 UnrecognizedArrival?, 
+
+	 
+
+	 ClaimsOfFalseHero?) | 
+
+	 
+
+	 (LiquidationOfLack?, 
+
+	 
+
+	 Return?, 
+
+	 
+
+	 PursuitRescueOfHero?, 
+
+	 
+
+	 UnrecognizedArrival?, 
+
+	 
+
+	 ClaimsOfFalseHero?, 
+
+	 
+
+	 (Task, 
+
+	 
+
+	 (Task, 
+
+	 
+
+	 Task)?)?))?, 
+
+	 
+
+	 ((Wedding?, 
+
+	 
+
+	 RecognitionOfHero?, 
+
+	 
+
+	 ExposureOfFalseHero?, 
+
+	 
+
+	 Transfiguration?, 
+
+	 
+
+	 PunishmentOfFalseHero?, 
+
+	 
+
+	 AlienForms?) | 
+
+	 
+
+	 (RecognitionOfHero?, 
+
+	 
+
+	 ExposureOfFalseHero?, 
+
+	 
+
+	 Transfiguration?, 
+
+	 
+
+	 PunishmentOfFalseHero?, 
+
+	 
+
+	 Wedding?, 
+
+	 
+
+	 AlienForms?, 
+
+	 
+
+	 Return?, 
+
+	 
+
+	 Epilogue?))*)>
+
+<!-- PREPARATION CONTENT MODEL-->
+
+<!ELEMENT Preparation (Incantation?, InitialSituation?, Absentation?, (CommandExecution | 
+
+
+
+	InformationInterchange | 
+
+	
+
+	Deception | 
+
+	
+
+	PrelimMisfortune)?)>
+
+<!-- Hey - Sing, Muse, of the Wrath of little so-and-so! -->
+
+<!ELEMENT Incantation (#PCDATA)>
+
+<!-- Alpha or InitialSituation: Once upon a time, 
+
+	there lived ...-->
+
+<!ELEMENT InitialSituation (#PCDATA)>
+
+<!--Beta or Absentation: so-and-so's mommy and daddy
+
+	died, leaving little so-and-so poor, lonesome 
+
+	and wretched-->
+
+<!ELEMENT Absentation (#PCDATA)>
+
+<!ATTLIST Absentation
+
+	subtype (Elders | 
+
+	
+
+	Parents | 
+
+	
+
+	OtherYouth | 
+
+	
+
+	Spouse) #REQUIRED
+
+>
+
+<!-- Gamma-Delta or CommandExecution sequence -->
+
+<!ELEMENT CommandExecution (Command?, 
+
+
+
+	Execution?)>
+
+<!-- Gamma: whoknowswhotold so-and-so not to ... -->
+
+<!ELEMENT Command (#PCDATA)>
+
+<!ATTLIST Command
+
+	subtype (Interdiction | 
+
+	
+
+	Command) #REQUIRED
+
+>
+
+<!-- Delta: so-and-so was stubborn and didn't listen to whoknowswho -->
+
+<!ELEMENT Execution (#PCDATA)>
+
+<!ATTLIST Execution
+
+	subtype (Followed | 
+
+	
+
+	Violated) #REQUIRED
+
+>
+
+<!-- epsilon-zeta or InformationInterchange sequence -->
+
+<!ELEMENT InformationInterchange (InformationReconnaissance, 	
+
+	InformationReceipt)>
+
+<!-- Epsilon: so-and-so goes to find out ... -->
+
+<!ELEMENT InformationReconnaissance (#PCDATA)>
+
+<!ATTLIST InformationReconnaissance
+
+	subtype (ByHero | 
+
+	
+
+	ByVillain) #REQUIRED
+
+>
+
+<!-- Zeta: little so-and-so learns that ... -->
+
+<!ELEMENT InformationReceipt (#PCDATA)>
+
+<!ATTLIST InformationReceipt
+
+	subtype (AboutVillain | 
+
+	
+
+	AboutHero | 
+
+	
+
+	OtherMeans) #REQUIRED
+
+>
+
+<!-- Eta-Theta or Deceit sequence -->
+
+<!ELEMENT Deception (DeceitByVillain, 
+
+
+
+	ReactionToDeceit, 
+
+	
+
+	PrelimMisfortune)>
+
+<!-- Eta: Wutzizface tricks little so-and-so into ... -->
+
+<!ELEMENT DeceitByVillain (#PCDATA)>
+
+<!ATTLIST DeceitByVillain
+
+	subtype (Persuasion | 
+
+	
+
+	Magic | 
+
+	
+
+	Other) #REQUIRED
+
+>
+
+<!--Theta: So-and-so skips back-->
+
+<!ELEMENT ReactionToDeceit (#PCDATA)>
+
+<!ATTLIST ReactionToDeceit
+
+	subtype (Reaction | 
+
+	
+
+	HeroFallsVictim | 
+
+	
+
+	MechanicalReaction) #REQUIRED
+
+>
+
+<!-- Lambda: little so-and-so falls into a cave-or Villainy:  little-so-and-so is cast under 
+
+	a spell by the she/he/it of the cave -->
+
+<!ELEMENT PrelimMisfortune (#PCDATA)>
+
+<!-- A:  little so-and-so is kidnapped by the hairy dragon -->
+
+<!ELEMENT Villainy (#PCDATA)>
+
+<!ATTLIST Villainy
+
+	subtype (Kidnapping | 
+
+	
+
+	SeizureOfMagicalAgent | 
+
+	
+
+	SeizureOfMagicalHelper | 
+
+	
+
+	RuinOfCrops | 
+
+
+
+	TheftOfDaylight | 
+
+	
+
+	Plundering | 
+
+	
+
+	Mutilation | 
+
+
+
+	EvocationOfDisappearance | 
+
+	
+
+	ForgottenBride | 
+
+	
+
+	DemandForDelivery | 
+
+	
+
+	Expulsion | 
+
+	
+
+	CastIntoSea | 
+
+	
+
+	CastingOfSpell | 
+
+	
+
+	FalseSubstitution | 
+
+
+
+	OrderToKill | 
+
+	
+
+	Murder | 
+
+	
+
+	Imprisonment | 
+
+	
+
+	ForcedMatrimony | 
+
+
+
+	ThreatOfCannibalism | 
+
+	
+
+	ThreatOfCannibalismAmongRelatives | 
+
+	
+
+	Vampirism | DeclarationOfWar) #REQUIRED
+
+>
+
+<!-- since sometimes types of villainy assimilate into one another, I have created another attribute list -->
+
+<!ATTLIST Villainy
+
+	secondarysubtype (Kidnapping | 
+
+	
+
+	SeizureOfMagicalAgent | 
+
+	
+
+	SeizureOfMagicalHelper | 
+
+	
+
+	RuinOfCrops | 
+
+	
+
+	TheftOfDaylight | 
+
+	
+
+	Plundering | 
+
+	
+
+	Mutilation | 
+
+	
+
+	EvocationOfDisappearance | 
+
+	
+
+	ForgottenBride | 
+
+	
+
+	DemandForDelivery | 
+
+	
+
+	Expulsion | 
+
+	
+
+	CastIntoSea | 
+
+	
+
+	CastingOfSpell | 
+
+
+
+	FalseSubstitution | 
+
+
+
+	OrderToKill | 
+
+	
+
+	Murder | 
+
+	
+
+	Imprisonment | 
+
+	
+
+	ForcedMatrimony | 
+
+	
+
+	ThreatOfCannibalism | 
+
+	
+
+	ThreatOfCannibalismAmongRelatives | 
+
+	
+
+	Vampirism | 
+
+	
+
+	DeclarationOfWar) #IMPLIED
+
+>
+
+<!-- a or Lack:  little-so-and-so is real poor -->
+
+<!ELEMENT Lack (#PCDATA)>
+
+<!ATTLIST Lack
+
+	subtype (LackOfBride | 
+
+	
+
+	LackOfHelper | 
+
+	
+
+	LackOfWondrousObjects | 
+
+	
+
+	LackOfEggOfDeath | 
+
+	
+
+	LackOfMoney | 
+
+	
+
+	OtherFormsOfLack) #REQUIRED
+
+>
+
+<!-- B or ConnectiveIncident: little-so-and-so squeaks out 
+
+	for assistance from the cave -->
+
+<!ELEMENT ConnectiveIncident (#PCDATA)>
+
+<!ATTLIST ConnectiveIncident
+
+	subtype (CallForHelp | 
+
+	
+
+	Dispatch | 
+
+	
+
+	Release | 
+
+	
+
+	AnnouncementOfMisfortune | 
+
+	
+
+	TransportationOfBanishedHero | 
+
+	
+
+	CondemnedHeroReleased | 
+
+	
+
+	PlaintiveSong) #REQUIRED
+
+	
+
+	secondarysubtype (CallForHelp | 
+
+	
+
+	Dispatch | 
+
+	
+
+	Departure | 
+
+	
+
+	AnnouncementOfMisfortune | 
+
+	
+
+	TransportationOfBanishedHero | 
+
+	
+
+	CondemnedHeroReleased | 
+
+	
+
+	PlaintiveSong) #IMPLIED
+
+>
+
+<!-- C or ConsentToCounteraction -->
+
+<!ELEMENT ConsentToCounteraction (#PCDATA)>
+
+<!-- ^ or Departure from Home -->
+
+<!ELEMENT Departure (#PCDATA)>
+
+<!-- D:  Luke meets the cantankerous OB-1 -->
+
+<!ELEMENT DonorFunction (#PCDATA)>
+
+<!ATTLIST DonorFunction
+
+	subtype (TestOfHero | 
+
+	
+
+	GreetingAndInterrogation | 
+
+	
+
+	PosthumousRequest | 
+
+	
+
+	EntreatyForFreedom | 
+
+	
+
+	EntreatyForFreedomWithPrelimImprisonment | 
+
+	
+
+	RequestForMercy | 
+
+	
+
+	RequestForDivision | 
+
+	
+
+	ArgumentWithoutRequestforDivision | 
+
+	
+
+	OtherRequests | 
+
+	
+
+	OtherRequestsWhileRequesterHelpless | 
+
+	
+
+	PossibilityOfServiceWithoutStatedRequest | 
+
+	
+
+	CombatWithHero | 
+
+	
+
+	MagicalAgentAsExchange) #REQUIRED
+
+>
+
+<!-- E -->
+
+<!ELEMENT HeroReaction (#PCDATA)>
+
+<!ATTLIST HeroReaction
+
+	
+
+	subtype (SustainedOrdeal | 
+
+	
+
+	FriendlyResponse | 
+
+	
+
+	FavorToDeadPerson | 
+
+	
+
+	FreeingOfCaptive | 
+
+	
+
+	MercyToSuppliant | 
+
+	
+
+	Seperation | 
+
+	
+
+	Deception | 
+
+
+
+	PerformanceOfService | 
+
+	
+
+	DestructionAverted | 
+
+	
+
+	VictoryInCombat | 
+
+	
+
+	DeceptionInExchange) #REQUIRED
+
+>
+
+<!-- F -->
+
+<!ELEMENT AcquisitionOfMagicalAgent (#PCDATA)>
+
+<!ATTLIST AcquisitionOfMagicalAgent
+
+	
+
+	subtype (TransferOfAgent | 
+
+	
+
+	MagicalGift | 
+
+	
+
+	GiftOfMaterialNature | 
+
+	
+
+	AgentNotTransferred | 
+
+	
+
+	CruelRetribution | 
+
+	
+
+	AgentPointedOut | 
+
+	
+
+	AgentPrepared | 
+
+	
+
+	AgentPurchased | 
+
+	
+
+	AgentMadeOnOrder | 
+
+	
+
+	AgentFound | 
+
+	
+
+	AgentAppearsVoluntarily | 
+
+	
+
+	SubterraneanAgent | 
+
+	
+
+	HelperOffersServices | 
+
+	
+
+	AgentEitherDrunkOrEaten | 
+
+	
+
+	AgentSeized | 
+
+	
+
+	AgentPlacesSelfAtDisposal | 
+
+
+
+	AgentWillAppearAtTimeOfNeed) #REQUIRED
+
+>
+
+<!-- Assimilated functiontype -->
+
+<!ATTLIST AcquisitionOfMagicalAgent
+
+	secondarysubtype (TransferOfAgent | 
+
+	
+
+	MagicalGift | 
+
+	
+
+	GiftOfMaterialNature | 
+
+	
+
+	AgentNotTransferred | 
+
+	
+
+	CruelRetribution | 
+
+	
+
+	AgentPointedOut | 
+
+	
+
+	AgentPrepared | 
+
+	
+
+	AgentPurchased | 
+
+	
+
+	AgentMadeOnOrder | 
+
+	
+
+	AgentFound | 
+
+	
+
+	AgentAppearsVoluntarily | 
+
+	
+
+	SubterraneanAgent | 
+
+	
+
+	HelperOffersServices | 
+
+	
+
+	AgentEitherDrunkOrEaten | 
+
+	
+
+	AgentSeized | 
+
+	
+
+	AgentPlacesSelfAtDisposal | 
+
+	
+
+	AgentWillAppearAtTimeOfNeed) #IMPLIED
+
+>
+
+<!-- G -->
+
+<!ELEMENT Transference (#PCDATA)>
+
+<!ATTLIST Transference
+
+	subtype (HeroFlies | 
+
+	
+
+	HeroRides | 
+
+	
+
+	HeroLed | 
+
+	
+
+	RouteShownToHero | 
+
+	
+
+	HeroCommunicates | 
+
+	
+
+	BloodyTrailShowsWay) #REQUIRED
+
+>
+
+<!--H-I or Struggle-Victory Sequence-->
+
+<!ELEMENT StruggleVictory (Struggle, 
+
+
+
+	Branding?, 
+
+	
+
+	Victory)>
+
+<!ATTLIST StruggleVictory
+
+	
+
+	subtype (FightInOpenField | 
+
+	
+
+	FightInOpenFieldByHeroWhileOthersHide | 
+
+	
+
+	Competition | 
+
+	
+
+	GameOfCards | 
+
+	
+
+	Weighing | 
+
+	
+
+	KillingOfVillainWithoutFight | 
+
+	
+
+	ExpulsionOfVillain) #REQUIRED
+
+>
+
+<!-- H or Struggle -->
+
+<!ELEMENT Struggle (#PCDATA)>
+
+<!-- I or Victory: -->
+
+<!ELEMENT Victory (#PCDATA)>
+
+<!-- J -->
+
+<!ELEMENT Branding (#PCDATA)>
+
+<!ATTLIST Branding
+
+	subtype (MarkToBody | 
+
+	
+
+	TransferenceOfSymbolicObject) #REQUIRED
+
+>
+
+<!-- K -->
+
+<!ELEMENT LiquidationOfLack (#PCDATA)>
+
+<!ATTLIST LiquidationOfLack
+
+
+
+	subtype (AcqThroughForceOrCunning | 
+
+	
+
+	AcqThroughPersuasion | 
+
+	
+
+	AcqThroughManyHelpers | 
+
+	
+
+	AcqThroughEnticement | 
+
+	
+
+	AcqThroughPreviousActions | 
+
+	
+
+	AcqThroughMagicalAgent | 
+
+	
+
+	BreakingOfSpell | 
+
+	
+
+	ObjectOfSearchCaptured | 
+
+	
+
+	Resuscitation | 
+
+	
+
+	WaterOfLife | 
+
+	
+
+	ReleaseFromCaptivity | 
+
+	
+
+	PovertyEliminatedThroughMagicAgent) #REQUIRED
+
+>
+
+<!-- Assimilated functiontype -->
+
+<!ATTLIST LiquidationOfLack
+
+	
+
+	secondarysubtype (AcqThroughForceOrCunning | 
+
+	
+
+	AcqThroughPersuasion | 
+
+	
+
+	AcqThroughManyHelpers | 
+
+	
+
+	AcqThroughEnticement | 
+
+	
+
+	AcqThroughPreviousActions | 
+
+	
+
+	AcqThroughMagicalAgent | 
+
+	
+
+	BreakingOfSpell | 
+
+	
+
+	ObjectOfSearchCaptured | 
+
+	
+
+	Resuscitation | 
+
+	
+
+	WaterOfLife | 
+
+	
+
+	ReleaseFromCaptivity | 
+
+	
+
+	PovertyEliminatedThroughMagicAgent) #IMPLIED
+
+>
+
+<!-- Return of Hero -->
+
+<!ELEMENT Return (#PCDATA)>
+
+<!--Pr-Rs or Pursuit-Rescue Sequence-->
+
+<!ELEMENT PursuitRescueOfHero ((PursuitOfHero, 	RescueOfHero), 
+
+	
+
+	(PursuitOfHero, 
+
+	
+
+	RescueOfHero, 
+
+	
+
+	PursuitOfHero, 
+
+	
+
+	RescueOfHero)?, 
+
+	
+
+	(PursuitOfHero, 
+
+	
+
+	RescueOfHero)?)>
+
+
+
+<!--Pr- little so-and-so -->
+
+<!ELEMENT PursuitOfHero (#PCDATA)>
+
+<!ATTLIST PursuitOfHero
+
+	subtype (FlightThroughAir | 
+
+	
+
+	DemandforGuiltyPerson | 
+
+	
+
+	PursuitWithTransIntoAnimals | 
+
+	
+
+	TransIntoEnticingObjects | 
+
+	
+
+	AttemptToDevourHero | 
+
+	
+
+	AttemptToDestroyHero | 
+
+	
+
+	AttemptToGnawThroughTree) #REQUIRED
+
+>
+
+<!-- Rs -->
+
+<!ELEMENT RescueOfHero (#PCDATA)>
+
+<!ATTLIST RescueOfHero
+
+	
+
+	subtype (HeroCarriedThroughAir | 
+
+	
+
+	SomethingThrownInPath | 
+
+	
+
+	TransIntoInanimateObjects | 
+
+	
+
+	HeroConcealedByBlacksmiths | 
+
+	
+
+	TransIntoAnimateObjects | 
+
+	
+
+	TemptationWardedOff | 
+
+	
+
+	RescueFromDevourment | 
+
+	
+
+	RescueFromDestruction | 
+
+	
+
+	LeapToAnotherTree) #REQUIRED
+
+>
+
+<!-- Assimilated functiontype -->
+
+<!ATTLIST RescueOfHero
+
+	secondarysubtype (HeroCarriedThroughAir | 
+
+	
+
+	SomethingThrownInPath | 
+
+	
+
+	TransIntoInanimateObjects | 
+
+	
+
+	HeroConcealedByBlacksmiths | 
+
+	
+
+	TransIntoAnimateObjects | 
+
+	
+
+	TemptationWardedOff | 
+
+	
+
+	RescueFromDevourment | 
+
+	
+
+	RescueFromDestruction | 
+
+	
+
+	LeapToAnotherTree) #IMPLIED
+
+>
+
+<!-- o:  _O_dysseus arriveth to Ithica Incognito -->
+
+<!ELEMENT UnrecognizedArrival (#PCDATA)>
+
+<!-- L -->
+
+<!ELEMENT ClaimsOfFalseHero (#PCDATA)>
+
+<!--M-N or Task Sequence-->
+
+<!ELEMENT Task (DifficultTask, 
+
+
+
+	SolutionOfTask)>
+
+<!--M-->
+
+<!ELEMENT DifficultTask (#PCDATA)>
+
+<!-- N -->
+
+<!ELEMENT SolutionOfTask (#PCDATA)>
+
+<!ATTLIST SolutionOfTask
+
+	subtype (Solution | 
+
+	
+
+	SolutionOfTaskBeforeDeadline) #REQUIRED
+
+>
+
+<!-- Q:  the queen's maid, bathing little so-and-so recognizes his scar ... -->
+
+<!ELEMENT RecognitionOfHero (#PCDATA)>
+
+<!-- Ex: you win this time, little so-and-so, but soon we shall meet again! -->
+
+<!ELEMENT ExposureOfFalseHero (#PCDATA)>
+
+<!-- T -->
+
+<!ELEMENT Transfiguration (#PCDATA)>
+
+<!ATTLIST Transfiguration
+
+	subtype (NewPhysicalAppearance | 
+
+	
+
+	BuildingOfPalace | 
+
+	
+
+	NewGarments | 
+
+	
+
+	HumorousForms) #REQUIRED
+
+>
+
+<!-- U or U.neg -->
+
+<!ELEMENT PunishmentOfFalseHero (#PCDATA)>
+
+<!ATTLIST PunishmentOfFalseHero
+
+	subtype (Punished | 
+
+	
+
+	Pardoned) #REQUIRED
+
+>
+
+<!-- W: little so-and-so is given dominion over all known
+
+	Universe and betrothed to the princess -->
+
+<!ELEMENT Wedding (#PCDATA)>
+
+<!ATTLIST Wedding
+
+	
+
+	subtype (WeddingThrone | 
+
+	
+
+	Wedding | 
+
+	
+
+	Throne | 
+
+	
+
+	RudimentaryMarriage | 
+
+	
+
+	PromisedMarriage | 
+
+	
+
+	ResumedMarriage | 
+
+	
+
+	Money | 
+
+	
+
+	OtherVictory) #REQUIRED
+
+>
+
+<!-- X:  Lepus Rex takes over the Galaxy -->
+
+<!ELEMENT AlienForms (#PCDATA)>
+
+<!-- Farewell - now mead runs down my mustache - and scarcely a trickle clears my mouth!  -->
+
+<!ELEMENT Epilogue (#PCDATA)>
+
