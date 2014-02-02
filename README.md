@@ -9,5 +9,5 @@ naReme is a tool in R statistical language for identifying Proppian functions / 
 
 Goods: 
  * pftml.dtd
- * rPython_NLTK.R R to Python interface to access implementation of Marti Hearst's Textiling algorithm, auto-segmentation of texts using roving windows and cosine similarity metrics to identify topical cleavages/breaks, i.e. paragraphs or narrames: http://people.ischool.berkeley.edu/~hearst/research/tiling.html
+ * rPython_NLTK.R R interface to access Python/NLTK's implementation of Marti Hearst's Textiling algorithm, auto-segmentation of texts using roving windows and cosine similarity metrics to identify topical cleavages/breaks, i.e. paragraphs or narrames: http://people.ischool.berkeley.edu/~hearst/research/tiling.html
  * Magic_Swan_Geese.xml - sample of marked up tale in English
