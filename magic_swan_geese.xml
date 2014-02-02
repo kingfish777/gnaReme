@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Propp predicts: gamma-delta-A-B-C-depart.-((D-E.neg-F.neg)«3)/(D-E-F)- -->
+<!-- G-H-I-K-Return-Pr-(DEF)«3-Rs - looks pretty messy, from standpoint of DTD -->
+<!-- -->
+<!-- last edited 05.17.2002 -->
+<!DOCTYPE Corpus SYSTEM "pftml.dtd">
+<Corpus>
+	<Folktale Title="The Swan-Geese" AT="480" NewAfanasievEditionNumber="113" ProppConformity="Yes">
+		<Move>
+			<Preparation>
+				<InitialSituation>
+Once upon a time a man and a woman lived with their daughter and small son.
+</InitialSituation>
+				<CommandExecution>
+					<Command subtype="Interdiction">
+"Dearest daughter," said the mother, "we are going to work. Look after your brother! Don't go out of the yard, be a good girl, and we'll buy you a handkerchief."
+</Command>
+					<Execution subtype="Violated">
+The father and mother went off to work, and the daughter soon enough forgot what they had told her. She put her little brother on the grass under a window and ran into the yard, where she played and got completely carried away having fun.</Execution>
+				</CommandExecution>
+			</Preparation>
+			<Villainy subtype="Kidnapping">
+In swooped the swan-geese, snatched up the little boy, and flew away with him.
+</Villainy>
+			<ConsentToCounteraction>
+When the girl came back inside, her brother was missing! "Oh no!" she cried. She dashed here and there, but there was no sign of him. She called for him, cried, and wailed how angry mother and father would be, but her brother did not answer.</ConsentToCounteraction>
+			<Departure>
+Then she ran out to the edge of the fields, and just managed to catch sight of the swan-geese rushing into the distance and disappearing into the forest. She suspected that they were taking her brother off with them. Swan-geese had long held a bad reputation for being naughty and carrying away little children.
+
+
+The girl rushed to catch up with them. She ran and ran, until she saw an oven.</Departure>
+			<!-- border of segment quite arbitrary here -->
+			<!-- trebling of Donors -->
+			<DonorFunction subtype="TestOfHero">
+"Little oven, little oven, tell me, where did the swan-geese fly to?"
+</DonorFunction>
+			<AcquisitionOfMagicalAgent subtype="HelperOffersServices">
+"Eat up some of my rye buns, and I will tell you."
+"I'm not going to eat your rye buns! I don't even eat the wheat ones we have at home."
+
+The oven did not tell her. The girl ran further, until she came to an apple tree.</AcquisitionOfMagicalAgent>
+			<DonorFunction subtype="TestOfHero">
+"Apple tree, apple tree, tell me, where did the swan-geese fly to?"
+</DonorFunction>
+			<AcquisitionOfMagicalAgent subtype="HelperOffersServices">
+"Eat some of my wild apples, and I will tell you."
+"I'm not going to eat your wild apples! I don't even eat the apples from our garden at home."
+
+The apple tree did not tell her. So the girl ran further, until she came to a river of milk flowing in banks of pudding.
+</AcquisitionOfMagicalAgent>
+			<DonorFunction subtype="TestOfHero">
+"River of milk, banks of pudding, where did the swan-geese fly to?"
+</DonorFunction>
+			<AcquisitionOfMagicalAgent subtype="HelperOffersServices">
+"Eat up some of my humble pudding with milk, and I will tell you."
+
+"I'm not going to eat your simple pudding with milk! I don't even eat the pudding we have at home."</AcquisitionOfMagicalAgent>
+			<Transference subtype="RouteShownToHero">
+For a long time she ran through clearings and through forest. The day drew toward evening, and there was nothing to do--she had to go home. But when she turned around, she suddenly saw a little cabin with one little window.
+
+In the cabin was the old witch Baba Yaga, spinning flax. And on a little bench sat her brother, playing with a silver apple.
+
+The girl ran into the cabin.
+</Transference>
+			<StruggleVictory subtype="Competition">
+				<Struggle>
+"Hello, old woman!"
+
+"Hello, maiden. Why have you burst into my house like this?"
+
+"I came through the forest and through the swamp, and my dress is torn to shreds. I would like to warm up a little here."
+
+"Sit over there and spin some flax."</Struggle>
+				<Victory>Baba Yaga gave her a spindle and left her alone. The girl was spinning away, when suddenly a mouse darted out from under the stove and said to her, "Maiden, maiden, give me a bit of porridge and I will tell you things you need to know."
+
+The girl gave her a bit of porridge, and the mouse told her, "Baba Yaga has gone to the bath house to stoke the fire. She is going to steam you, put you in the oven, roast you, eat you up, and then ride away on two of your bones."
+
+The girl sat in a state of shock, crying, but the mouse spoke to her again. "Don't wait! Pick up your brother, run, and I will spin the flax in your place."</Victory>
+			</StruggleVictory>
+			<LiquidationOfLack subtype="ReleaseFromCaptivity">
+The girl snatched up her brother and set out running. After she was gone, Baba Yaga went up to the window and asked, "Maiden, are you spinning?"
+
+"I'm spinning, old woman," answered the mouse.</LiquidationOfLack>
+			<PursuitRescueOfHero>
+				<!-- a trebling of Pursuit-and-Rescue Elements -->
+				<PursuitOfHero subtype="AttemptToDevourHero">
+The old witch, satisfied, went back to the bath house. When she had gotten the fire hot enough, she went to get the girl. But in the cabin there was nobody. She cried, "Swan-geese! After them! The sister has stolen her brother and run away!"
+
+The girl, her brother in her arms, ran up to the river of milk. She saw that the swan-geese were flying after her.
+
+"Mother river, hide me!"
+</PursuitOfHero>
+				<RescueOfHero subtype="RescueFromDevourment">
+"Eat up some of my simple pudding."
+
+The girl ate and thanked the river, and the river sheltered her under its banks of pudding. 
+The swan-geese did not see her, and flew past.
+
+The girl set out running again, her brother in her arms.</RescueOfHero>
+				<PursuitOfHero subtype="AttemptToDevourHero"> But the swan-geese came back, and flew in her direction, there--there! They saw them! What to do? Trouble! But there stood the apple tree.
+
+"Mother apple tree, hide me!"
+
+"Eat some of my wild apples."
+
+The girl quickly ate one and thanked the tree, </PursuitOfHero>
+				<RescueOfHero subtype="HeroCarriedThroughAir">and the tree hid her with its branches, sheltered her with its leaves.
+
+The swan-geese didn't see them, and flew past.</RescueOfHero>
+				<PursuitOfHero subtype="AttemptToDevourHero">
+The girl ran again. She ran and ran, until she was almost exhausted. The swan-geese saw her again, and began to cackle. They flew in on her, and beat their wings as if at any moment they would snatch her brother from her arms.
+
+The girl ran up to the oven:
+
+"Mother oven, hide me!"
+</PursuitOfHero>
+				<RescueOfHero subtype="RescueFromDevourment">
+"Eat some of my rye buns."
+
+The girl quickly popped a bun into her mouth and settled herself and her brother into the oven.
+
+The swan-geese flew and flew, called and called, but finally they gave up and flew away, back to the old woman.
+</RescueOfHero>
+			</PursuitRescueOfHero>
+			<Return>
+The girl thanked the oven and, together with her brother, ran all the way home.
+
+And just after they got there, their father and mother returned.</Return>
+		</Move>
+	</Folktale>
+</Corpus>
