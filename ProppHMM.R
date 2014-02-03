@@ -11,6 +11,15 @@
 #  for more information, see: 
 #  http://www.gnu.org/licenses/gpl-3.0.txt
 ###############################################################
+#
+# TO DO: initialize HMM
+#
+#
+#
+#
+#
+#######################
+
 
 library('HMM')
 
