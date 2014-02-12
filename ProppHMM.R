@@ -14,8 +14,8 @@
 #
 # TO DO: initialize HMM
 #
-#
-#
+# hint:
+# http://www.r-bloggers.com/fun-with-r-and-hmms/
 #
 #
 #######################
