@@ -11,3 +11,14 @@ Goods:
  * pftml.dtd
  * rPython_NLTK.R R interface to access Python/NLTK's implementation of Marti Hearst's Textiling algorithm, auto-segmentation of texts using roving windows and cosine similarity metrics to identify topical cleavages/breaks, i.e. paragraphs or narrames: http://people.ischool.berkeley.edu/~hearst/research/tiling.html
  * Magic_Swan_Geese.xml - sample of marked up tale in English
+ 
+
+TO DO:
+ * finish HMM.R representation of narremes
+ * chunk using NLTK_TextTiling.R
+ * distance matrix using weights from HMM and cosine similarity of text segments marked up as containing the same narrative function
+ 
+
+
+--------------
+last edited 2/11/2014 SAM
