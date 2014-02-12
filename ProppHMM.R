@@ -21,9 +21,14 @@
 #######################
 
 
-library('HMM')
+
+library(HMM)
+library(lattice)
+
 
 afan <- c("A", "B", "C", "depart", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "o", "MOVE", "Pr", "Rs", "Q", "T", "U", "W", "X", "Ex", "return")
+
+fake <- sample(c("A", "B", "C", "depart", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "o", "MOVE", "Pr", "Rs", "Q", "T", "U", "W", "X", "Ex", "return"))
 
 a <- sample(c("A", "B", "depart", "D", "E", "F", "MOVE"))
 
@@ -198,9 +203,35 @@ gc <- sample(c("A", "B", "C", "G", "MOVE"))
 hc <- sample(c("A", "B", "C",  "depart", "D", "E", "F", "M", "N", "W", "return"))
 
 
-obs <- c(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ba, ca, ca, da, ea, fa, ga, ha, ia, ja, ka, la, ma, na, oa, pa, qa, ra, sa, ta, ua, va, wa, xa, ya, za, ab, cb, db, eb, fb, gb, hb, ib, jb, kb, lb, mb, nb, ob, pb, qb, rb, sb, tb, ub, vb, wb, xb, yb, zb, ac, bc, cc, dc, ec, fc, gc, hc)
+obs <- c(fake, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ba, ca, ca, da, ea, fa, ga, ha, ia, ja, ka, la, ma, na, oa, pa, qa, ra, sa, ta, ua, va, wa, xa, ya, za, ab, cb, db, eb, fb, gb, hb, ib, jb, kb, lb, mb, nb, ob, pb, qb, rb, sb, tb, ub, vb, wb, xb, yb, zb, ac, bc, cc, dc, ec, fc, gc, hc)
+
+#obs <- c(fake, fake, fake, fake, fake, fake, fake, fake, fake, fake, a, b, c)
+
+prob <- function (x) {x / sum (x)}  # Makes it a probability (it sums to 1)
+
+hmm <- initHMM(afan, afan, startProbs=(prob (runif (2))),
+					transProbs=apply (matrix (runif (4), 2), 1, prob),
+					emissionProbs=apply (matrix (runif (52), 2), 1, prob))
 
 
+system.time (obs.vt <- viterbiTraining(hmm, obs, delta=1E-9, maxIterations=100, pseudoCount = 0))
+
+xyplot (obs.vt$hmm$emissionProbs[1,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames (obs.vt$hmm$emissionProbs))), type=”h”)
+
+xyplot (obs.vt$hmm$emissionProbs[2,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames (obs.vt$hmm$emissionProbs))), type=”h”)
+
+
+
+#system.time (obs.bw <- baumWelch(hmm, obs))
+
+#xyplot (obs.bw$hmm$emissionProbs[1,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames (obs.bw$hmm$emissionProbs))), type=”h”)
+
+#xyplot (obs.bw$hmm$emissionProbs[2,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames (obs.bw$hmm$emissionProbs))), type=”h”)
+
+####################
+####################
+####################
+####################
 
 hmm <- initHMM(afan, afan) #, startProbs = sp)
 
