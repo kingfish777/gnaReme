@@ -216,10 +216,8 @@ hmm <- initHMM(afan, afan, startProbs=(prob (runif (2))),
 
 system.time (obs.vt <- viterbiTraining(hmm, obs, delta=1E-9, maxIterations=100, pseudoCount = 0))
 
-xyplot (obs.vt$hmm$emissionProbs[1,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames (obs.vt$hmm$emissionProbs))), type=”h”)
-
-xyplot (obs.vt$hmm$emissionProbs[2,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames (obs.vt$hmm$emissionProbs))), type=”h”)
-
+xyplot(obs.vt$hmm$emissionProbs[1,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames(obs.vt$hmm$emissionProbs))), type="h")
+xyplot(obs.vt$hmm$emissionProbs[2,] ~ c(1:26), scales=list(x=list(at=1:26, labels=colnames(obs.vt$hmm$emissionProbs))), type="h")
 
 
 #system.time (obs.bw <- baumWelch(hmm, obs))
