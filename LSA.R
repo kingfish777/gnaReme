@@ -1,4 +1,3 @@
-
 rm(list=ls())
   setwd("/home/propp/Desktop/Sites/MalecLabs.com/Propp/Afan_Magnus_Leonard_trans_1916/");
  # setwd("/home/propp/Desktop/Propp/AutoProppCorpus/Afan_Eng/");
@@ -13,6 +12,8 @@ rm(list=ls())
  library("tm")
 
  library("Rgraphviz")
+ 
+ library(RTextTools)
 
  txt <- system.file("texts", "txt", package = "tm")
 
@@ -28,7 +29,14 @@ rm(list=ls())
 
  corpus <- tm_map(corpus, stemDocument)
 
- dtm <- DocumentTermMatrix(corpus)
+# dtm <- DocumentTermMatrix(corpus)
+ dtm <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf, 
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL, 
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0, 
+              removeStopwords=TRUE,  stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE, 
+              weighting=weightTf)
+ rowTotals <- apply(dtm , 1, sum) #Find the sum of words in each Document
+ dtm   <- dtm[rowTotals> 0]           #remove all docs without words
 
  # dtm <- removeSparseTerms(dtm, 0.99)
 
