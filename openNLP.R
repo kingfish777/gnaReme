@@ -9,11 +9,7 @@ initsit <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Preparation//Ini
 initsit
 return <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Return")[[1]])
 return
-
-
-
 library(openNLP)
 # sentDetect(initsit, language = "en", model = NULL)
 y <- tagPOS(initsit, language = "en", model = NULL, tagdict = NULL)
-
 y
