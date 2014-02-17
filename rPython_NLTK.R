@@ -16,20 +16,11 @@
 # TextTiling algorithm
 #
 #########################################################################
-
-
-
 #python nltk integration --- using Marti Hearst's textiling algorithm
 # textiling uses a roving text window to identify breaks in the topical structure within a text
 # http://people.ischool.berkeley.edu/~hearst/research/tiling.html
-
 # http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
-
 # http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
-
-
-
-
 library(rPython)
 python.exec("import nltk")
 python.exec("import nltk.corpus")
@@ -46,8 +37,6 @@ python.exec("url = \"/home/hinckley/Public/corpora/afan/BaldakBorisevich.txt\"")
 #python.exec("url = \"/home/hinckley/Public/corpora/afan/JackFrost.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/afan/DaughterStepdaughter.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/afan/Berenushka.txt\"")
-
-
 python.exec("raw = urlopen(url).read()")
 #python.exec("alice = nltk.corpus.gutenberg.raw('carroll-alice.txt')")
 #python.get("alice")
@@ -62,6 +51,4 @@ python.get("tiles")
 text <- paste("espeak -p 99 \"", zip, "\"", sep="")
 text
 system(text)
-
 #python.exec("nltk.tokenize.texttiling.demo(text=None)")
-
