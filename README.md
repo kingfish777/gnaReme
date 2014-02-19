@@ -23,4 +23,7 @@ TO DO:
 HMM tutorial: http://www.r-bloggers.com/fun-with-r-and-hmms/
 
 --------------
-last edited 2/12/2014 SAM
+last edited 2/19/2014 SAM
+
+
+http://tales.pro/rustls.html
