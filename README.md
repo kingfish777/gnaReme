@@ -23,7 +23,7 @@ TO DO:
 HMM tutorial: http://www.r-bloggers.com/fun-with-r-and-hmms/
 
 --------------
-last edited 2/19/2014 SAM
+last edited 2/27/2014 SAM
 
 
 http://www.feb-web.ru/feb/skazki/texts/af0/af1/af1-120-.htm
