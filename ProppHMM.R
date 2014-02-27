@@ -17,8 +17,16 @@
 # hint:
 # http://www.r-bloggers.com/fun-with-r-and-hmms/
 #
+# http://mephisto.unige.ch/pub/TraMineR/doc/TraMineR-Users-Guide.pdf
 #
-#######################
+##############################
+# TO DO: use TraMineR
+#
+# Mining sequence data in R with the TraMineR package: A user's guide. 
+#
+# http://mephisto.unige.ch/traminer/
+#
+##############################
 library(HMM)
 library(lattice)
 library(RHmm)
