@@ -9,6 +9,7 @@ For more information:
 * http://ilk.uvt.nl/amicus/WS01/scott_malec_ea.pdf
 * https://github.com/kingfish777/ProppianFunction-vs-Tale_Matrix_Project
 * https://github.com/kingfish777/gnaRemeCorpus
+* https://github.com/kingfish777/central_corpora/tree/master/AFAN
 
 
 Goods: 
