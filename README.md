@@ -10,6 +10,7 @@ For more information:
 * https://github.com/kingfish777/ProppianFunction-vs-Tale_Matrix_Project
 * https://github.com/kingfish777/gnaRemeCorpus
 * https://github.com/kingfish777/central_corpora/tree/master/AFAN
+* Raw material: http://www.feb-web.ru/feb/skazki/default.asp?/feb/skazki/texts/af0/af0.html
 
 
 Goods: 
