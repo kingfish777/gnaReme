@@ -57,7 +57,8 @@ python.exec(paste("tiles = ttt.tokenize(raw)"))
 zip <- python.get("tiles[-1]")
 zip
 python.get("tiles")
-text <- paste("espeak -p 99 \"", zip, "\"", sep="")
+text <- paste("espeak -p 79 -k20 -v+f2 \"", zip, "\"", sep="")
+# http://espeak.sourceforge.net/commands.html
 text
 system(text)
 #python.exec("nltk.tokenize.texttiling.demo(text=None)")
