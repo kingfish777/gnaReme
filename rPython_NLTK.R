@@ -60,7 +60,7 @@ zip
 python.get("tiles")
 writeLines(zip, "/home/hinckley/Public/monkey2.txt") #safe text locally
 #text <- paste("espeak -p 79 -k20 -v+f2 \"", zip, "\"", sep="")
-text <- paste("espeak -v+whisper -k20 -p 79 \"", "/home/hinckley/Public/monkey2.txt", "\"", sep="")
+text <- paste("espeak -v+whisper -k20 -p 79 -s 225 -f \"", "/home/hinckley/Public/monkey2.txt", "\"", sep="")
 # http://espeak.sourceforge.net/commands.html
 text
 system(text)
