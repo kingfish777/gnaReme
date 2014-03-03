@@ -23,10 +23,9 @@
 #  http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
 ########################################################################
 # TO DO: 
-#       * introduce tm_map to clean up text of white space and other indicators
 #       * split apart sentences
 #       * useopenNLP to identify named entities
-#       * create 'the AutoPropp engine'
+#       * create 'the AutoPropp engine' 
 #######################################################################
 library(rPython)
 python.exec("import nltk")
