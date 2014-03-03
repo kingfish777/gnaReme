@@ -16,17 +16,17 @@
 # TextTiling algorithm
 #
 #########################################################################
-#python nltk integration --- using Marti Hearst's textiling algorithm
-# textiling uses a roving text window to identify breaks in the topical structure within a text
-# http://people.ischool.berkeley.edu/~hearst/research/tiling.html
-# http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
-# http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
+# python nltk integration --- using Marti Hearst's textiling algorithm
+#  textiling uses a roving text window to identify breaks in the topical structure within a text
+#  http://people.ischool.berkeley.edu/~hearst/research/tiling.html
+#  http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
+#  http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
 ########################################################################
 # TO DO: 
 #       * introduce tm_map to clean up text of white space and other indicators
 #       * split apart sentences
 #       * useopenNLP to identify named entities
-#      * create 'the AutoPropp engine'
+#       * create 'the AutoPropp engine'
 #######################################################################
 library(rPython)
 python.exec("import nltk")
@@ -46,6 +46,7 @@ python.exec("url = \"/home/hinckley/Public/corpora/afan/DaughterStepdaughter.txt
 python.exec("url = \"/home/hinckley/Public/corpora/afan/Berenushka.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/afan/KoshchejBesmertnyj.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/myron_magnet/mm49.txt\"")
+python.exec("url = \"/home/hinckley/Public/corpora/coulter/coulter28.txt\"")
 python.exec("raw = urlopen(url).read()")
 #python.exec("alice = nltk.corpus.gutenberg.raw('carroll-alice.txt')")
 #python.get("alice")
