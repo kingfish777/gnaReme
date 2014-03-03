@@ -7,6 +7,7 @@ For more information:
 * http://clover.slavic.pitt.edu/sam/propp/theory/propp.html
 * http://dh2010.cch.kcl.ac.uk/academic-programme/abstracts/papers/html/ab-753.html
 * http://ilk.uvt.nl/amicus/WS01/scott_malec_ea.pdf
+* https://github.com/kingfish777/ProppianFunction-vs-Tale_Matrix_Project
 
 
 Goods: 
