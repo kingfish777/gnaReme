@@ -14,12 +14,11 @@ Goods:
  
 
 TO DO:
- * finish HMM.R representation of narremes
+ * finish markov model representation of narremes in HMM.R
  * chunk using NLTK_TextTiling.R
+ * implement more of AutoPrpop in R
  * distance matrix using weights from HMM and cosine similarity of text segments marked up as containing the same narrative function
  
-
-
 HMM tutorial: http://www.r-bloggers.com/fun-with-r-and-hmms/
 
 --------------
