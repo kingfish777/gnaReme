@@ -31,7 +31,6 @@ python.exec("corpus_root = '/home/hinckley/Public/corpora/transcripts/1936'")
 python.exec("corpus = PlaintextCorpusReader(corpus_root, '.*')")
 python.get("corpus.fileids()")
 python.get("corpus.open('fomcropa19361120.txt')")
-##
 #python.exec("url = \"/home/hinckley/Public/corpora/transcripts/1936/fomcropa19361120.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/afan/ArmlessMaiden.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/afan/BaldakBorisevich.txt\"")
@@ -48,11 +47,7 @@ corpus <- tm_map(corpus, removePunctuation)
 #corpus <- tm_map(corpus, removeNumbers)
 #corpus <- tm_map(corpus, tolower)
 corpus <- tm_map(corpus, stripWhitespace)
-##
-##
-##
-##
-tm::writeCorpus(x=corpus, path="/home/hinckley/Public/doom")
+tm::writeCorpus(x=corpus, path="/home/hinckley/Public/doom/DOOM_TEXT_NAME.txt")
 python.exec("url = \"/home/hinckley/Public/doom\"")
 #python.exec("alice = nltk.corpus.gutenberg.raw('carroll-alice.txt')")
 #python.get("alice")
