@@ -37,18 +37,28 @@ python.exec("url = \"/home/hinckley/Public/corpora/afan/BaldakBorisevich.txt\"")
 #python.exec("url = \"/home/hinckley/Public/corpora/afan/JackFrost.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/afan/DaughterStepdaughter.txt\"")
 python.exec("url = \"/home/hinckley/Public/corpora/afan/Berenushka.txt\"")
-python.exec("raw = urlopen(url).read()")
+#########
+#########
+#########
+wd = "/home/hinckley/Public/corpora/afan"
+wd = "/home/hinckley/Public/corpora/coulter"
 setwd(wd)
 text <- system.file("texts", "txt", package="tm")
 corpus <- Corpus(DirSource('.'))
 corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
 corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
-corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeWords, c(stopwords("english"))) 
+#corpus <- tm_map(corpus, removePunctuation)
 #corpus <- tm_map(corpus, removeNumbers)
 #corpus <- tm_map(corpus, tolower)
 corpus <- tm_map(corpus, stripWhitespace)
-tm::writeCorpus(x=corpus, path="/home/hinckley/Public/doom/DOOM_TEXT_NAME.txt")
-python.exec("url = \"/home/hinckley/Public/doom\"")
+########################
+# write corpus to local folder
+########################
+tm::writeCorpus(x=corpus, path="/home/hinckley/Public/doom")
+python.exec("url = \"/home/hinckley/Public/doom/coulter17.txt.txt\"")
+python.exec("url = \"/home/hinckley/Public/doom/mm17.txt.txt\"")
+python.exec("raw = urlopen(url).read()")
 #python.exec("alice = nltk.corpus.gutenberg.raw('carroll-alice.txt')")
 #python.get("alice")
 #python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=4, similarity_method=0, stopwords=None, smoothing_method=[0], smoothing_width=2, smoothing_rounds=50, cutoff_policy=10, demo_mode=False)")
