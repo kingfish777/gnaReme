@@ -1,3 +1,4 @@
+
 #########################################################################
 # Copyright (c) 2014 All Rights Reserved, Scott Alexander Malec
 #
@@ -8,7 +9,7 @@
 #
 # Author: Scott Alexander Malec
 # Email: scott [dot] malec [at] gmail [dot] com
-# Date: 1/23/2014
+# Date: 3/3/2014
 #
 # TITLE: rPython_NLTK.R
 #
@@ -16,11 +17,30 @@
 # TextTiling algorithm
 #
 #########################################################################
+# python nltk integration --- using Marti Hearst's textiling algorithm
+#  textiling uses a roving text window to identify breaks in the topical structure within a text
+#  http://people.ischool.berkeley.edu/~hearst/research/tiling.html
+#  http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
+#  http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
+########################################################################
+# TO DO: 
+#       * split apart sentences
+#       * useopenNLP to identify named entities
+#       * create 'the AutoPropp engine' 
+#######################################################################
+#######################################################################
 #python nltk integration --- using Marti Hearst's textiling algorithm
 # textiling uses a roving text window to identify breaks in the topical structure within a text
 # http://people.ischool.berkeley.edu/~hearst/research/tiling.html
 # http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
 # http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
+########################################################################
+########################################################################
+####################
+#
+#
+#
+####################
 library(rPython)
 library(tm)
 library(RTextTools)
