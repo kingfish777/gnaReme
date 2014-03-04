@@ -22,23 +22,28 @@
 # http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
 # http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
 library(rPython)
+library(tm)
+library(RTextTools)
 python.exec("import nltk")
 python.exec("import nltk.corpus")
 python.exec("from nltk.corpus import PlaintextCorpusReader")
 python.exec("from urllib import urlopen")
 python.exec("import numpy")
+##############
+# deprecated junk
+##############
 python.exec("corpus_root = '/home/hinckley/Public/corpora/transcripts/1936'")
 python.exec("corpus = PlaintextCorpusReader(corpus_root, '.*')")
 python.get("corpus.fileids()")
 python.get("corpus.open('fomcropa19361120.txt')")
 #python.exec("url = \"/home/hinckley/Public/corpora/transcripts/1936/fomcropa19361120.txt\"")
-python.exec("url = \"/home/hinckley/Public/corpora/afan/ArmlessMaiden.txt\"")
-python.exec("url = \"/home/hinckley/Public/corpora/afan/BaldakBorisevich.txt\"")
+#python.exec("url = \"/home/hinckley/Public/corpora/afan/ArmlessMaiden.txt\"")
+#python.exec("url = \"/home/hinckley/Public/corpora/afan/BaldakBorisevich.txt\"")
 #python.exec("url = \"/home/hinckley/Public/corpora/afan/JackFrost.txt\"")
-python.exec("url = \"/home/hinckley/Public/corpora/afan/DaughterStepdaughter.txt\"")
-python.exec("url = \"/home/hinckley/Public/corpora/afan/Berenushka.txt\"")
+#python.exec("url = \"/home/hinckley/Public/corpora/afan/DaughterStepdaughter.txt\"")
+#python.exec("url = \"/home/hinckley/Public/corpora/afan/Berenushka.txt\"")
 #########
-#########
+## preprocess text
 #########
 wd = "/home/hinckley/Public/corpora/afan"
 wd = "/home/hinckley/Public/corpora/coulter"
@@ -66,10 +71,12 @@ python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width =
 #similarity_method, 0, BLOCK_COMPARISON,
 python.get("raw")
 python.exec(paste("tiles = ttt.tokenize(raw)"))
-zip <- python.get("tiles[-1]")
+zip <- python.get("tiles[-2]")
 zip
 python.get("tiles")
-text <- paste("espeak -p 99 \"", zip, "\"", sep="")
-text
+writeLines(zip, "/home/hinckley/Public/monkey2.txt") #safe text locally
+#text <- paste("espeak -p 79 -k20 -v+f2 \"", zip, "\"", sep="")
+text <- paste("espeak -v+whisper -k20 -p 79 -s 225 -f \"", "/home/hinckley/Public/monkey2.txt", "\"", sep="")
+# http://espeak.sourceforge.net/commands.html
 system(text)
 #python.exec("nltk.tokenize.texttiling.demo(text=None)")
