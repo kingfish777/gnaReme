@@ -24,6 +24,10 @@ TO DO:
  * chunk using NLTK_TextTiling.R
  * implement more of AutoPropp in R
  * distance matrix using weights from HMM and cosine similarity of text segments marked up as containing the same narrative function
+ * non-Guterman corpus from 1916, no, use copy & paste feb-web and use Google translate or Bing Trans, chunking text for bulk machine translation
+ * edit Russian and English corpora (both marked up training set and non marked up test set
+ * tokenize at sentence level
+ * simplify combinatorics function (create simple workable example that can scale up to AutoPropp)
  
 HMM tutorial: http://www.r-bloggers.com/fun-with-r-and-hmms/
 
