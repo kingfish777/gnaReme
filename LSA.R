@@ -33,3 +33,5 @@ plot(dtm, corThreshold = 0.5, terms = findFreqTerms(dtm, 6, Inf))
 inspect(corpus)[[20]] 
 summary(lsa)
 ######
+tm::Zipf_plot(dtm)
+tm::Heaps_plot(dtm)
