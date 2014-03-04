@@ -15,6 +15,7 @@ corpus <- tm_map(corpus, tolower)
 corpus <- tm_map(corpus, stripWhitespace)
 corpus <- tm_map(corpus, removeWords, stopwords("english"))
 corpus <- tm_map(corpus, stemDocument)
+#tm::writeCorpus(x=corpus, path="/home/hinckley/Public/doom")
 # dtm <- DocumentTermMatrix(corpus)
 dtm <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf, 
               minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL, 
