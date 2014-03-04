@@ -21,36 +21,38 @@
 #  http://people.ischool.berkeley.edu/~hearst/research/tiling.html
 #  http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
 #  http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
-########################################################################
-# TO DO: 
-#       * split apart sentences
-#       * useopenNLP to identify named entities
-#       * create 'the AutoPropp engine' 
-#######################################################################
-#######################################################################
+#########################################################################
 #python nltk integration --- using Marti Hearst's textiling algorithm
 # textiling uses a roving text window to identify breaks in the topical structure within a text
 # http://people.ischool.berkeley.edu/~hearst/research/tiling.html
 # http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
 # http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
+#########################################################################
+# TO DO: 
+#       * split apart sentences
+#       * useopenNLP to identify named entities
+#       * create 'the AutoPropp engine' 
 ########################################################################
 ########################################################################
-####################
+########################################################################
+########################################################################
+########################################################################
 #
+# ah, the wretcheness, the elegance of Python meets, well, R
 #
-#
-####################
+########################################################################
 library(rPython)
 library(tm)
 library(RTextTools)
+########################################################################
 python.exec("import nltk")
 python.exec("import nltk.corpus")
 python.exec("from nltk.corpus import PlaintextCorpusReader")
 python.exec("from urllib import urlopen")
 python.exec("import numpy")
-##############
+########################################################################
 # deprecated junk
-##############
+########################################################################
 python.exec("corpus_root = '/home/hinckley/Public/corpora/transcripts/1936'")
 python.exec("corpus = PlaintextCorpusReader(corpus_root, '.*')")
 python.get("corpus.fileids()")
