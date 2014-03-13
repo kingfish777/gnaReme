@@ -4,7 +4,6 @@ gnaReme
 gnaReme is suite of tools for the purpose of automatically identifying recurrent content objects in natural langauge narratives at a level above the sentence. Inspired by the original work of Vladimir J. Propp, the objective is to develop a class of algorithms that would identify verbal constructs that would look something like Proppian functions / narremes (explicit linguistic marking of story 'state'). For the purpose of creating a training corpus for non-parametric statistical learning, a corpus of Russian magic tales had been annotated and marked up according to the PftML DTD (Malec 2001). 
 
 For more information: 
-* http://clover.slavic.pitt.edu/sam/propp/theory/propp.html
 * http://dh2010.cch.kcl.ac.uk/academic-programme/abstracts/papers/html/ab-753.html
 * http://ilk.uvt.nl/amicus/WS01/scott_malec_ea.pdf
 * https://github.com/kingfish777/ProppianFunction-vs-Tale_Matrix_Project
