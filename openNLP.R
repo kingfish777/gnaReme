@@ -31,4 +31,14 @@ HeroReaction
 AcquisitionOfMagicalAgent <- getNodeSet(tale, "//Corpus//Folktale//Move//AcquisitionOfMagicalAgent")
 AcquisitionOfMagicalAgent
 #
+Wedding <- getNodeSet(tale, "//Corpus//Folktale//Move//Wedding")
+Wedding
+#
+Epilogue <- getNodeSet(tale, "//Corpus//Folktale//Move//Epilogue")
+Epilogue
+#
+RecognitionOfHero <- getNodeSet(tale, "//Corpus//Folktale//Move//RecognitionOfHero")
+RecognitionOfHero
+#
+
 
