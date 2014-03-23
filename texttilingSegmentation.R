@@ -95,7 +95,7 @@ python.exec(paste("tiles = ttt.tokenize(raw)"))
 zip <- python.get("tiles[-2]")
 zip
 python.get("tiles")
-writeLines(zip, "/home/hinckley/Public/monkey2.txt") #safe text locally
+writeLines(zip, "/home/hinckley/Public/monkey2.txt") #save text locally
 #text <- paste("espeak -p 79 -k20 -v+f2 \"", zip, "\"", sep="")
 ########################
 # creepy "whisper" voice
