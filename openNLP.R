@@ -6,17 +6,29 @@ setwd("/home/kingfish")
 url <- "Corpus_Rus.xml"
 tale <- xmlTreeParse(getURL(url), useInternal = T)
 tale
+#
 initsit <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Preparation//InitialSituation")[[1]])
 initsit
-return <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Return")[[1]])
-return
 
+Return <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Return")[[1]])
+Return
+#
 Trans <- getNodeSet(tale, "//Corpus//Folktale//Move//Transfiguration")
 Trans
-
+#
 Villainy <- getNodeSet(tale, "//Corpus//Folktale//Move//Villainy")
 Villainy
-
+#
 Lack <- getNodeSet(tale, "//Corpus//Folktale//Move//Lack")
 Lack
+#
+DonorFunction <- getNodeSet(tale, "//Corpus//Folktale//Move//DonorFunction")
+DonorFunction
+#
+HeroReaction <- getNodeSet(tale, "//Corpus//Folktale//Move//HeroReaction")
+HeroReaction
+#
+AcquisitionOfMagicalAgent <- getNodeSet(tale, "//Corpus//Folktale//Move//AcquisitionOfMagicalAgent")
+AcquisitionOfMagicalAgent
+#
 
