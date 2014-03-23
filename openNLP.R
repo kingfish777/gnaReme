@@ -7,10 +7,10 @@ url <- "Corpus_Rus.xml"
 tale <- xmlTreeParse(getURL(url), useInternal = T)
 tale
 #
-initsit <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Preparation//InitialSituation")[[1]])
+initsit <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Preparation//InitialSituation"))
 initsit
 
-Return <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Return")[[1]])
+Return <- xmlValue(getNodeSet(tale, "//Corpus//Folktale//Move//Return"))
 Return
 #
 Trans <- getNodeSet(tale, "//Corpus//Folktale//Move//Transfiguration")
