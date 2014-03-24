@@ -90,14 +90,25 @@ for (i in 1:length(Villainy))
  { writeLines(as.character(getChildrenStrings(Villainy[[i]])), paste("/home/kingfish/proppian_function_language_models/Villainy/Villainy", as.character(i), ".txt", sep=""))  } 
 
 for (i in 1:length(Lack)) 
- { writeLines(as.character(getChildrenStrings(Villainy[[i]])), paste("/home/kingfish/proppian_function_language_models/Lack/Lack", as.character(i), ".txt", sep=""))  } 
+ { writeLines(as.character(getChildrenStrings(Lack[[i]])), paste("/home/kingfish/proppian_function_language_models/Lack/Lack", as.character(i), ".txt", sep=""))  } 
+
+for (i in 1:length(DonorFunction)) 
+ { writeLines(as.character(getChildrenStrings(VDonorFunction[[i]])), paste("/home/kingfish/proppian_function_language_models/DonorFunction/DonorFunction", as.character(i), ".txt", sep=""))  } 
+ 
+for (i in 2:length(HeroReaction)) 
+ { writeLines(as.character(getChildrenStrings(HeroReaction[[i]])), paste("/home/kingfish/proppian_function_language_models/HeroReaction/HeroReaction", as.character(i), ".txt", sep=""))  } 
+
+for (i in 1:length(AcquisitionOfMagicalAgent)) 
+ { writeLines(as.character(getChildrenStrings(AcquisitionOfMagicalAgent[[i]])), paste("/home/kingfish/proppian_function_language_models/AcquisitionOfMagicalAgent/AcquisitionOfMagicalAgent", as.character(i), ".txt", sep=""))  } 
+
+for (i in 1:length(LiquidationOfLack)) 
+ { writeLines(as.character(getChildrenStrings(LiquidationOfLack[[i]])), paste("/home/kingfish/proppian_function_language_models/LiquidationOfLack/LiquidationOfLack", as.character(i), ".txt", sep=""))  } 
  
 for (i in 2:length(Return)) 
  { writeLines(as.character(getChildrenStrings(Return[[i]])), paste("/home/kingfish/proppian_function_language_models/Return/Return", as.character(i), ".txt", sep=""))  } 
 
 for (i in 1:length(Wedding)) 
  { writeLines(as.character(getChildrenStrings(Wedding[[i]])), paste("/home/kingfish/proppian_function_language_models/Wedding/Wedding", as.character(i), ".txt", sep=""))  } 
-
 
 # and so on
 ############################
