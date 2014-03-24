@@ -1,3 +1,9 @@
+##############################################################
+#
+# Licensed under GPL3 by Scott Alexander Malec (MalecLabs.com)
+# for more information, see:
+# http://www.gnu.org/licenses/gpl-3.0.txt
+###############################################################
 #
 #this reads in PFTML, dumps content of function snippets as files into  respective folders
 #build language models from those folders
@@ -7,7 +13,8 @@
 #next steps:
 # ---> more data markup and cleanup (in Russian and English) [in paper we can show preliminary results)
 #----> turn the experiment into a 'machine' (that is, something that happens without human intervention, quasi randomized and reproducible)
-
+####
+####
 
 library(XML)
 library(tm)
