@@ -251,5 +251,5 @@ plot(hclust(dist(DocumentTermMatrix(corpus)), method="complete"))
 # use TEXT TILING to TEST SNIPPETS
 # bring in daily mail, myron magnet, ann coulter, SOTUS, Necronomicon, etc.
 #
-#
-#
+# create texttilingSegmenterFunction from this --->
+# https://github.com/kingfish777/gnaReme/blob/master/texttilingSegmentation.R
