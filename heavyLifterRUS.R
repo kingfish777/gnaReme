@@ -110,6 +110,10 @@ for (i in 2:length(Return))
 for (i in 1:length(Wedding)) 
  { writeLines(as.character(getChildrenStrings(Wedding[[i]])), paste("/home/kingfish/proppian_function_language_models/Wedding/Wedding", as.character(i), ".txt", sep=""))  } 
 
+for (i in 1:length(Epilogue)) 
+ { writeLines(as.character(getChildrenStrings(Epilogue[[i]])), paste("/home/kingfish/proppian_function_language_models/Epilogue/Epilogue", as.character(i), ".txt", sep=""))  } 
+
+
 # and so on
 ############################
 # CREATE LANGUAGE MODELS
@@ -165,8 +169,8 @@ corpus <- tm_map(corpus, removeNumbers)
 corpus <- tm_map(corpus, tolower)
 corpus <- tm_map(corpus, stripWhitespace)
 ####################
-#VILLAINY
-#dtm.villainy <- DocumentTermMatrix(corpus)
+#Lack
+#dtm.lack <- DocumentTermMatrix(corpus)
 ###########################
 dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
               minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
@@ -184,8 +188,262 @@ plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
 inspect(corpus)[[20]]
 summary(lsa.lack)
 ######
-tm::Zipf_plot(dtm.villainy)
-tm::Heaps_plot(dtm.villainy) 
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+###################
+#CARDINAL FUNCTION MODEL
+###################
+wd <- "/home/kingfish/proppian_function_language_models/Lack"
+setwd(wd)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+####################
+#Lack
+#dtm.lack <- DocumentTermMatrix(corpus)
+###########################
+dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
+              removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
+              weighting=weightTf)
+rowTotals <- apply(dtm.lack, 1, sum) #Find the sum of words in each Document
+dtm.lack <- dtm.lack[rowTotals> 0] #remove all docs without words
+# dtm <- removeSparseTerms(dtm, 0.99)
+lsa.lack <- lsa(dtm.lack, dims = dimcalc_share(share = .5))
+lsa_k.lack <- lsa(dtm.lack, dims = dimcalc_kaiser())
+plot(dtm.lack)
+plot(dtm.lack, corThreshold = 0.5)
+plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
+inspect(corpus)[[20]]
+summary(lsa.lack)
+######
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+
+
+###################
+#DONOR FUNCTION LANGUAGE MODEL
+###################
+wd <- "/home/kingfish/proppian_function_language_models/Lack"
+setwd(wd)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+####################
+#Donor Function
+#dtm.donorfunction <- DocumentTermMatrix(corpus)
+###########################
+dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
+              removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
+              weighting=weightTf)
+rowTotals <- apply(dtm.lack, 1, sum) #Find the sum of words in each Document
+dtm.lack <- dtm.lack[rowTotals> 0] #remove all docs without words
+# dtm <- removeSparseTerms(dtm, 0.99)
+lsa.lack <- lsa(dtm.lack, dims = dimcalc_share(share = .5))
+lsa_k.lack <- lsa(dtm.lack, dims = dimcalc_kaiser())
+plot(dtm.lack)
+plot(dtm.lack, corThreshold = 0.5)
+plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
+inspect(corpus)[[20]]
+summary(lsa.lack)
+######
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+###################
+#HERO REACTION LANGUAGE MODEL
+###################
+wd <- "/home/kingfish/proppian_function_language_models/Lack"
+setwd(wd)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+####################
+#Hero Reaction
+#dtm.lack <- DocumentTermMatrix(corpus)
+###########################
+dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
+              removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
+              weighting=weightTf)
+rowTotals <- apply(dtm.lack, 1, sum) #Find the sum of words in each Document
+dtm.lack <- dtm.lack[rowTotals> 0] #remove all docs without words
+# dtm <- removeSparseTerms(dtm, 0.99)
+lsa.lack <- lsa(dtm.lack, dims = dimcalc_share(share = .5))
+lsa_k.lack <- lsa(dtm.lack, dims = dimcalc_kaiser())
+plot(dtm.lack)
+plot(dtm.lack, corThreshold = 0.5)
+plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
+inspect(corpus)[[20]]
+summary(lsa.lack)
+######
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+
+
+
+###################
+#ACQUISITION OF MAGICAL AGENT LANGUAGE MODEL
+###################
+wd <- "/home/kingfish/proppian_function_language_models/Lack"
+setwd(wd)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+####################
+#Acquisition of Magical Agent 
+#dtm.lack <- DocumentTermMatrix(corpus)
+###########################
+dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
+              removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
+              weighting=weightTf)
+rowTotals <- apply(dtm.lack, 1, sum) #Find the sum of words in each Document
+dtm.lack <- dtm.lack[rowTotals> 0] #remove all docs without words
+# dtm <- removeSparseTerms(dtm, 0.99)
+lsa.lack <- lsa(dtm.lack, dims = dimcalc_share(share = .5))
+lsa_k.lack <- lsa(dtm.lack, dims = dimcalc_kaiser())
+plot(dtm.lack)
+plot(dtm.lack, corThreshold = 0.5)
+plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
+inspect(corpus)[[20]]
+summary(lsa.lack)
+######
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+
+###################
+#LIQUIDATION OF LACK LANGUAGE MODEL
+###################
+wd <- "/home/kingfish/proppian_function_language_models/Lack"
+setwd(wd)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+####################
+#Liquidation of Lack
+#dtm.lack <- DocumentTermMatrix(corpus)
+###########################
+dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
+              removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
+              weighting=weightTf)
+rowTotals <- apply(dtm.lack, 1, sum) #Find the sum of words in each Document
+dtm.lack <- dtm.lack[rowTotals> 0] #remove all docs without words
+# dtm <- removeSparseTerms(dtm, 0.99)
+lsa.lack <- lsa(dtm.lack, dims = dimcalc_share(share = .5))
+lsa_k.lack <- lsa(dtm.lack, dims = dimcalc_kaiser())
+plot(dtm.lack)
+plot(dtm.lack, corThreshold = 0.5)
+plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
+inspect(corpus)[[20]]
+summary(lsa.lack)
+######
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+
+
+
+
+
+
+###################
+#RETURN LANGUAGE MODEL
+###################
+wd <- "/home/kingfish/proppian_function_language_models/Lack"
+setwd(wd)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+####################
+#Return
+#dtm.return <- DocumentTermMatrix(corpus)
+###########################
+dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
+              removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
+              weighting=weightTf)
+rowTotals <- apply(dtm.lack, 1, sum) #Find the sum of words in each Document
+dtm.lack <- dtm.lack[rowTotals> 0] #remove all docs without words
+# dtm <- removeSparseTerms(dtm, 0.99)
+lsa.lack <- lsa(dtm.lack, dims = dimcalc_share(share = .5))
+lsa_k.lack <- lsa(dtm.lack, dims = dimcalc_kaiser())
+plot(dtm.lack)
+plot(dtm.lack, corThreshold = 0.5)
+plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
+inspect(corpus)[[20]]
+summary(lsa.lack)
+######
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+
+
+
+
+
 
 
 ###################
@@ -222,6 +480,54 @@ plot(dtm.wedding, corThreshold = 0.5, terms = findFreqTerms(dtm.wedding, 6, Inf)
 inspect(corpus)[[20]]
 summary(lsa.wedding)
 ######
+
+
+
+
+
+
+###################
+#EPILOGUE LANGUAGE MODEL
+###################
+wd <- "/home/kingfish/proppian_function_language_models/Lack"
+setwd(wd)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+####################
+#Epilogue
+#dtm.lack <- DocumentTermMatrix(corpus)
+###########################
+dtm.lack <- create_matrix(cbind(as.vector(corpus)), language="english", minDocFreq=1, maxDocFreq=Inf,
+              minWordLength=3, maxWordLength=Inf, ngramLength=3, originalMatrix=NULL,
+              removeNumbers=FALSE, removePunctuation=TRUE, removeSparseTerms=0,
+              removeStopwords=TRUE, stemWords=FALSE, stripWhitespace=TRUE, toLower=TRUE,
+              weighting=weightTf)
+rowTotals <- apply(dtm.lack, 1, sum) #Find the sum of words in each Document
+dtm.lack <- dtm.lack[rowTotals> 0] #remove all docs without words
+# dtm <- removeSparseTerms(dtm, 0.99)
+lsa.lack <- lsa(dtm.lack, dims = dimcalc_share(share = .5))
+lsa_k.lack <- lsa(dtm.lack, dims = dimcalc_kaiser())
+plot(dtm.lack)
+plot(dtm.lack, corThreshold = 0.5)
+plot(dtm.lack, corThreshold = 0.5, terms = findFreqTerms(dtm.lack, 6, Inf))
+inspect(corpus)[[20]]
+summary(lsa.lack)
+######
+tm::Zipf_plot(dtm.lack)
+tm::Heaps_plot(dtm.lack) 
+
+
+
+
+
+
 
 
 
@@ -264,3 +570,11 @@ plot(hclust(dist(DocumentTermMatrix(corpus)), method="complete"))
 #
 # create texttilingSegmenterFunction from this --->
 # https://github.com/kingfish777/gnaReme/blob/master/texttilingSegmentation.R
+
+
+
+
+
+
+
+
