@@ -228,3 +228,10 @@ plot(phyl, edge.col=c("blue", "green", "red")[c(TRUE, FALSE) + 1 + (phyl$edge.le
 
 plot(hclust(dist(DocumentTermMatrix(corpus)), method="complete"))
 
+###########
+###########
+# use TEXT TILING to TEST SNIPPETS
+# bring in daily mail, myron magnet, ann coulter, SOTUS, Necronomicon, etc.
+#
+#
+#
