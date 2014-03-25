@@ -52,9 +52,9 @@ results would like something like this ===>
  each "raw" fairy tale resulting text tiles will be compared with language models of various functions:
  
 -------------- 
-## TEXT 1
+## TEXTTILE 1
  
-##snippetLM         i     ii      iii     iv        v      vi     vii     vii     ix     x     xi      xii
+##snippetLM         i     ii      iii     iv        v      vi     vii     vii     
 
 initSituationLM .5  .001 .0002  .0003 .003 .05    .09   .0394  .01 .014 .1  .001
 
@@ -82,17 +82,45 @@ EpilogueLM
 
 
 ---------------
-## TEXT 2
+## TEXTTILE 2
 
-##snippet   i
+##snippet   i       ii      iii     iv       v        vi
 
-####etc.
+initSituationLM .5  .001 .0002  .0003 .003 .05    .09   .0394  .01 .014 .1  .001
+
+VillainyLM       .003 .8   .001   .02    .08   etc.
+
+LackLM           .03   .3   .08 etc.
+
+CardinalLM (combination of Villainy and Lack)
+
+DonorFunctionLM
+
+etc.
+
+---------------
+## TEXTTILE 3
+
+##snippet   i       ii      iii     iv       v        vi
+
+initSituationLM .5  .001 .0002  .0003 .003 .05    .09   .0394  .01 .014 .1  .001
+
+VillainyLM       .003 .8   .001   .02    .08   etc.
+
+LackLM           .03   .3   .08 etc.
+
+CardinalLM (combination of Villainy and Lack)
+
+DonorFunctionLM
+
+etc.
 
  PURPOSE: demonstrate how model can be used to determine the structure
                    of 'raw' magic tale narratives
 
------------------------------------------------------------------------
 
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
 
 For more information: 
 * http://dh2010.cch.kcl.ac.uk/academic-programme/abstracts/papers/html/ab-753.html
