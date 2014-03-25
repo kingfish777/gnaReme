@@ -17,3 +17,4 @@ mkdir Epilogue
 echo "creating experiment folders"
 mkdir AfanTextTiles
 mkdir RandomTextTiles
+mkdir ExperimentFolder
