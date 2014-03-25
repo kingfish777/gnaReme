@@ -42,8 +42,12 @@ EXPERIMENT III
 results would like something like this ===>
 
  each "raw" fairy tale resulting text tiles will be compared with language models of various functions:
-TEXT 1
+ 
+ 
+ TEXT 1
+ 
 snippetLM         i     ii      iii     iv        v      vi     vii     vii     ix     x     xi      xii
+
 initSituationLM .5  .001 .0002  .0003 .003 .05    .09   .0394  .01 .014 .1  .001
 VillainyLM       .003 .8   .001   .02    .08   etc.
 LackLM           .03   .3   .08 etc.
@@ -57,8 +61,10 @@ TransfigurationLM
 WeddingLM
 EpilogueLM
 
-TEXT 2
+ TEXT 2
+
 snippet   i
+
 etc.
 
  PURPOSE: demonstrate how model can be used to determine the structure
@@ -95,7 +101,7 @@ TO DO:
 HMM tutorial: http://www.r-bloggers.com/fun-with-r-and-hmms/
 
 --------------
-last edited 2/27/2014 SAM
+last edited 3/24/2014 SAM
 
 
 http://www.feb-web.ru/feb/skazki/texts/af0/af1/af1-120-.htm
