@@ -10,22 +10,17 @@
 # Email: scott [dot] malec [at] gmail [dot] com
 # Date: 3/23/2014
 #
-# TITLE: rPython_NLTK.R
-#
-# Purpose: R Tools to interface with Python NLTK's implementation of Marti Heart's
-# TextTiling algorithm
+# TITLE: turn into function --- run for Afan, run for random texts
 #
 #########################################################################
 # python nltk integration --- using Marti Hearst's textiling algorithm
 # textiling uses a roving text window to identify breaks in the topical structure within a text
 # http://people.ischool.berkeley.edu/~hearst/research/tiling.html
-# http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
 # http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
 #########################################################################
 #python nltk integration --- using Marti Hearst's textiling algorithm
 # textiling uses a roving text window to identify breaks in the topical structure within a text
 # http://people.ischool.berkeley.edu/~hearst/research/tiling.html
-# http://clover.slavic.pitt.edu/sam/propp/praxis/results.html#final
 # http://www.lrec-conf.org/proceedings/lrec2012/pdf/876_Paper.pdf
 #########################################################################
 # TO DO:
@@ -73,7 +68,7 @@ text <- system.file("texts", "txt", package="tm")
 corpus <- Corpus(DirSource('.'))
 corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
 corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
-corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removeWords, c(stopwords("russian")))
 #corpus <- tm_map(corpus, removePunctuation)
 #corpus <- tm_map(corpus, removeNumbers)
 #corpus <- tm_map(corpus, tolower)
@@ -90,17 +85,23 @@ python.exec("raw = urlopen(url).read()")
 #python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=4, similarity_method=0, stopwords=None, smoothing_method=[0], smoothing_width=2, smoothing_rounds=50, cutoff_policy=10, demo_mode=False)")
 python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width = 6, smoothing_rounds = 10)")
 #similarity_method, 0, BLOCK_COMPARISON,
-python.get("raw")
-python.exec(paste("tiles = ttt.tokenize(raw)"))
-zip <- python.get("tiles[-2]")
-zip
-python.get("tiles")
-writeLines(zip, "/home/hinckley/Public/monkey2.txt") #save text locally
+
+#for each file {
+ #for each tile {
+  python.get("raw")
+  python.exec(paste("tiles = ttt.tokenize(raw)"))
+  zip <- python.get("tiles[-2]")
+  zip
+  python.get("tiles")
+  writeLines(zip, "/home/kingfish/proppian_function_language_models/AfanTextTiles") #save text locally
+##}
+#}
+
 #text <- paste("espeak -p 79 -k20 -v+f2 \"", zip, "\"", sep="")
 ########################
 # creepy "whisper" voice
 ########################
-text <- paste("espeak -v+whisper -k20 -p 79 -s 225 -f \"", "/home/hinckley/Public/monkey2.txt", "\"", sep="")
+#text <- paste("espeak -v+whisper -k20 -p 79 -s 225 -f \"", "/home/hinckley/Public/monkey2.txt", "\"", sep="")
 # http://espeak.sourceforge.net/commands.html
-system(text)
+#system(text)
 #python.exec("nltk.tokenize.texttiling.demo(text=None)")
