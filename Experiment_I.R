@@ -10,3 +10,29 @@
 #               classic information theory (Claude Shannon)
 #
 ###################################################################
+
+pftmlObjects <- c(dtm.villainy, dtm.lack, dtm.cardinal, etc.) 
+
+testObjects  <- createTestObjects(DNA, java, legalese, afanasiev) 
+
+for (counter in 1:testObjects) {
+
+  for (index in 1:pftmlObjects) {
+
+         getScore(pftmlObjects[index], testObjects[counter])
+
+  }
+}
+
+
+# useful stuff
+# system('cp * Lack Experiment')
+# sqldf 
+# data.table
+# random
+# set.seed
+
+
+
+
+
