@@ -1,4 +1,10 @@
-source("loadDataFromPFTML")
-source("createLanguageModels")
+source("heavyLifterRUS.R")
+source("createTextSegmentsRUS.R")
+
+
+
+
+
+
 
 
