@@ -22,14 +22,22 @@ gnaReme is suite of tools for the purpose of automatically identifying recurrent
 
   what results will look like:
 
-##             VillainySample1 VillainySample2 VillainySample3 etc.
- VillainyLM     .8         
- LackLM         .3
+             VillainySample1 VillainySample2 VillainySample3 etc.
+ VillainyLM     .8               .6               .9
+ LackLM         .2               .2              .5
  ...
- WeddingLM   0
- EpilogueLM   0
+ WeddingLM       0
+ EpilogueLM      0
 
   ... do the same with held out LackSamples ... WeddingSamples, EpilogueSamples         
+
+             WeddingSample1 WeddingSample2 WeddingSample3 etc.
+ VillainyLM     .8               .6               .9
+ LackLM         .2               .2              .5
+ ...
+ WeddingLM       0
+ EpilogueLM      0
+
 
  PURPOSE: show how language model from PftML can be useful even
                even if it is imperfect, rough-hewn
