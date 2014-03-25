@@ -19,3 +19,26 @@
 #               even if it is imperfect, rough-hewn
 #
 ##################################################################
+
+
+pftmlObjects <- c(dtm.villainy, dtm.lack, dtm.cardinal, etc.) 
+
+
+for (counter in 1:pftmlObjects) {
+
+  for (index in 1:pftmlObjects) {
+
+         getScore(pftmlObjects[index], pftmlObjects[counter])
+         # insert score in sqllite3 db using sqldf
+         # print out results
+  }
+}
+
+
+
+# useful stuff
+# system('cp * Lack Experiment')
+# sqldf 
+# data.table
+# random
+# set.seed
