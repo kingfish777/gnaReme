@@ -11,8 +11,8 @@ gnaReme is suite of tools for the purpose of automatically identifying recurrent
       * bureaucratic/legal  language
       * Russian magic tales
 
-## PURPOSE: demonstrate concepts like perplexity, entropy, ground work in
-##               classic information theory (Claude Shannon)
+ PURPOSE: demonstrate concepts like perplexity, entropy, ground work in
+               classic information theory (Claude Shannon)
 
 -------------------------------------------------------------------
 # EXPERIMENT II
@@ -22,7 +22,7 @@ gnaReme is suite of tools for the purpose of automatically identifying recurrent
 
   what results will look like:
 
-             VillainySample1 VillainySample2 VillainySample3 etc.
+##             VillainySample1 VillainySample2 VillainySample3 etc.
  VillainyLM     .8         
  LackLM         .3
  ...
@@ -31,8 +31,8 @@ gnaReme is suite of tools for the purpose of automatically identifying recurrent
 
   ... do the same with held out LackSamples ... WeddingSamples, EpilogueSamples         
 
-## PURPOSE: show how language model from PftML can be useful even
- ##              even if it is imperfect, rough-hewn
+ PURPOSE: show how language model from PftML can be useful even
+               even if it is imperfect, rough-hewn
 
 --------------------------------------------------------------------------
 #EXPERIMENT III
@@ -46,42 +46,42 @@ results would like something like this ===>
 -------------- 
 ## TEXT 1
  
-###snippetLM         i     ii      iii     iv        v      vi     vii     vii     ix     x     xi      xii
+##snippetLM         i     ii      iii     iv        v      vi     vii     vii     ix     x     xi      xii
 
-####initSituationLM .5  .001 .0002  .0003 .003 .05    .09   .0394  .01 .014 .1  .001
+initSituationLM .5  .001 .0002  .0003 .003 .05    .09   .0394  .01 .014 .1  .001
 
-####VillainyLM       .003 .8   .001   .02    .08   etc.
+VillainyLM       .003 .8   .001   .02    .08   etc.
 
-####LackLM           .03   .3   .08 etc.
+LackLM           .03   .3   .08 etc.
 
-####CardinalLM (combination of Villainy and Lack)
+CardinalLM (combination of Villainy and Lack)
 
-####DonorFunctionLM
+DonorFunctionLM
 
-####HeroReactionLM
+HeroReactionLM
 
-####AcquisitionOfMagicalAgentLM
+AcquisitionOfMagicalAgentLM
 
-####DonorClusterLM(combination of last three)
+DonorClusterLM(combination of last three)
 
-####ReturnLM
+ReturnLM
 
-####TransfigurationLM
+TransfigurationLM
 
-####WeddingLM
+WeddingLM
 
-####EpilogueLM
+EpilogueLM
 
 
 ---------------
 ## TEXT 2
 
-###snippet   i
+##snippet   i
 
 ####etc.
 
-## PURPOSE: demonstrate how model can be used to determine the structure
-##                   of 'raw' magic tale narratives
+ PURPOSE: demonstrate how model can be used to determine the structure
+                   of 'raw' magic tale narratives
 
 -----------------------------------------------------------------------
 
