@@ -42,3 +42,30 @@ for (counter in 1:pftmlObjects) {
 # data.table
 # random
 # set.seed
+
+
+sample sqldf:
+
+library(sqldf)
+library(data.table)
+t_twelve <- dput(t12ts)
+#t12 <- as.data.table(t12ts)
+t12 <- as.data.table(cbind(tx, tdt))
+t12
+tbill_data <- as.data.table(cbind(tbill_x, tbill_dt))
+tbill_data
+
+# do not run this - this is a cartesian join - it will hang your machine
+#sqldf("
+# SELECT *
+# FROM t12 as t12, tbill_data as b, t12 as t12_plus1
+# ")
+
+#print the current and the day before the next Fed statement
+sqldf("SELECT t12_1.tdt, t12_2.tdt-1
+FROM t12 as t12_1,
+t12 as t12_2
+WHERE t12_2.tdt > t12_1.tdt
+AND t12_2.tdt = (SELECT MIN(t12_3.tdt) AS tdt
+FROM t12 as t12_3
+WHERE t12_3.tdt > t12_1.tdt)")
