@@ -15,5 +15,5 @@ mkdir Return
 mkdir Wedding
 mkdir Epilogue
 echo "creating experiment folders"
-mkdir TextTiling
-mkdir RandomTexts
+mkdir AfanTextTiles
+mkdir RandomTextTiles
