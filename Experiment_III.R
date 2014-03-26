@@ -29,7 +29,8 @@
 #
 ######################################################################
 
-
+library(sqldf)
+library(data.table)
 
 
 pftmlObjects <- c(dtm.villainy, dtm.lack, dtm.cardinal, etc.) 
