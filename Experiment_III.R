@@ -94,14 +94,22 @@ textTilize(sfp,tfp)
 #  * classification methods: KNN
 #  * strip out named entities with primitive RegExp search/replace for non-word initial capitals
 
+
+
+
+########################
+########################
+########################
+# textiles to proppian functions
+
 library("lsa")
 # load training texts
-training_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Lack")
+training_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Experiment")
 # calculate tfidf
 training_matrix = lw_bintf(training_matrix) * gw_idf(training_matrix) #weighting
 lsa_space = lsa(training_matrix) # create LSA space
 # fold-in test and gold standard snippets
-test_gold_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Villainy", vocabulary=rownames(training_matrix))
+test_gold_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Functions", vocabulary=rownames(training_matrix))
 test_gold_matrix = lw_bintf(test_gold_matrix) * gw_idf(test_gold_matrix) #weighting
 # set NULLs to zeroes
 test_gold_matrix[is.na(test_gold_matrix)] <- 0
@@ -110,6 +118,8 @@ test_gold_matrix_space = fold_in(test_gold_matrix, lsa_space)
 # remove subscripts for comparison matrix of all texts
 cor(test_gold_matrix_space, test_gold_matrix_space)
 #calculate mean correlation score of test snippet against training and gold snippets
-mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
+#mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
 
+
+# system("") 
 
