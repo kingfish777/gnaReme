@@ -76,18 +76,20 @@ WHERE t12_3.tdt > t12_1.tdt)")
 
 library("lsa")
 # load training texts
-training_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Villainy")
+training_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Lack")
 # calculate tfidf
 training_matrix = lw_bintf(training_matrix) * gw_idf(training_matrix) #weighting
 lsa_space = lsa(training_matrix) # create LSA space
 # fold-in test and gold standard snippets
-test_gold_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Lack", vocabulary=rownames(training_matrix))
+test_gold_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Villainy", vocabulary=rownames(training_matrix))
+test_gold_matrix = lw_bintf(test_gold_matrix) * gw_idf(test_gold_matrix) #weighting
 # set NULLs to zeroes
 test_gold_matrix[is.na(test_gold_matrix)] <- 0
-test_gold_matrix = lw_bintf(test_gold_matrix) * gw_idf(test_gold_matrix) #weighting
 test_gold_matrix_space = fold_in(test_gold_matrix, lsa_space)
 # score snippet against gold standard
 # remove subscripts for comparison matrix of all texts
-cor(test_gold_matrix_space[,"Villainy4.txt"], test_gold_matrix_space[,"Wedding2.txt"]) 
+cor(test_gold_matrix_space, test_gold_matrix_space) 
 #calculate mean correlation score of test snippet against training and gold snippets
 mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
+
+
