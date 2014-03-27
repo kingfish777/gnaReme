@@ -5,12 +5,18 @@
 #results would like something like this ===>
 #
 # each "raw" fairy tale resulting text tiles will be compared with language models of various functions:
-#TEXT 1       TEXT 1                                   TEXT 2                      TEXT 3        etc.
+#93_SolntsSe   93_SolntsSestra.txt                             94_Morozko.txt          95_Morozko.txt       etc.
 #                  1     ii      iii     iv        v      vi     i    ii    iii    iv    i  ii   iii iv
 #   i            1 .0002  .0003 .002 .05    .09   .0394  .01 .014 .1  .001
 #   ii          .0002   1       etc.
 #   iii         .03    .002      1  etc.
 #   iv           
+#  etc.
+#94_Morozko.txt
+#
+#
+#95_Morozko.txt
+# etc.
 #
 # PURPOSE:    demonstrate how this algorithm can be used to determine the structure
 #             of 'raw' magic tale narratives #
@@ -82,7 +88,7 @@ textTilize(sfp,tfp)
 
 # TO DO =========> 
 #  * loops for parameters for texttiling
-#  * use TRY EXCEPT
+#  * use TRY EXCEPTION for graceful exception handling
 #  * classification methods: KNN, 
 #  * strip out named entities with primitive RegExp search/replace for non-word initial capitals
 
