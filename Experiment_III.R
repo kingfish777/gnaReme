@@ -29,23 +29,90 @@
 #
 ######################################################################
 
-library(sqldf)
-library(data.table)
 
+library(rPython)
+library(tm)
+library(RTextTools)
+########################################################################
+python.exec("import nltk")
+python.exec("import nltk.corpus")
+python.exec("from nltk.corpus import PlaintextCorpusReader")
+python.exec("from urllib import urlopen")
+python.exec("import numpy")
 
-pftmlObjects <- c(dtm.villainy, dtm.lack, dtm.cardinal, etc.) 
+setwd("/home/kingfish/proppian_function_language_models/ProppModel-master")
+originalwd <- getwd()
+folderPath <- originalwd
+setwd(folderPath)
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+setwd("/home/kingfish/proppian_function_language_models/ProppModel-master")
+tm::writeCorpus(x=corpus, path="/home/kingfish/proppian_function_language_models/Experiment")
+fPath = "/home/kingfish/proppian_function_language_models/Experiment"
 
-afanasevTextTileObjects <- createTextTiles("Afan") 
+fileList <- list.files(path=fPath)
+mode(fileList)
+length(fileList)
+fileList <- as.list(list.files(path=folderPath))
+fileList
 
-for (counter in 1:pftmlObjects) {
-
-  for (index in 1:afanasevTextTileObjects) {
-
-         getScore(afanasevTextTileObjects[index], pftmlObjects[counter])
-         # insert score in sqllite3 db using sqldf
-         # print out results
+textTilize <- function(folderPath) {
+  fileList <- as.list(list.files(path=folderPath))
+  ########################
+  for (counter in 1:length(fileList)) {
+    #print(fileList[[counter]])
+    #fileList[counter]
+    #counter=38
+    python.exec(paste("url = \"/home/kingfish/proppian_function_language_models/Experiment/",as.character(fileList[[counter]]), "\"", sep="")  )
+    python.exec("raw = urlopen(url).read()")
+    python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width = 6, smoothing_rounds = 10)")
+    python.get("raw")
+    python.exec(paste("tiles = ttt.tokenize(raw)"))
+    textTiles <- python.get("tiles")
+    for (i in 1:length(textTiles)) {
+       writeLines(textTiles, paste(folderPath, "textTile", i, "txt", sep=""))
+    }
   }
 }
+
+fp <- "/home/kingfish/proppian_function_language_models/Experiment/"
+
+textTilize(fp)
+
+
+
+library("lsa")
+# load training texts
+training_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Lack")
+# calculate tfidf
+training_matrix = lw_bintf(training_matrix) * gw_idf(training_matrix) #weighting
+lsa_space = lsa(training_matrix) # create LSA space
+# fold-in test and gold standard snippets
+test_gold_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Villainy", vocabulary=rownames(training_matrix))
+test_gold_matrix = lw_bintf(test_gold_matrix) * gw_idf(test_gold_matrix) #weighting
+# set NULLs to zeroes
+test_gold_matrix[is.na(test_gold_matrix)] <- 0
+test_gold_matrix_space = fold_in(test_gold_matrix, lsa_space)
+# score snippet against gold standard
+# remove subscripts for comparison matrix of all texts
+cor(test_gold_matrix_space, test_gold_matrix_space)
+#calculate mean correlation score of test snippet against training and gold snippets
+mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
+
+
+
+
+
+
+
+
 
 
 
