@@ -93,6 +93,7 @@ textTilize(sfp,tfp)
 #  * use TRY EXCEPTION for graceful exception handling
 #  * classification methods: KNN
 #  * strip out named entities with primitive RegExp search/replace for non-word initial capitals
+#  * sentence-sized snippets? 
 
 
 
