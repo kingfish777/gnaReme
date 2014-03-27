@@ -25,7 +25,6 @@ library(data.table)
 
 pftmlObjects <- c(dtm.villainy, dtm.lack, dtm.cardinal, etc.) 
 
-
 for (counter in 1:pftmlObjects) {
 
   for (index in 1:pftmlObjects) {
@@ -71,3 +70,22 @@ WHERE t12_2.tdt > t12_1.tdt
 AND t12_2.tdt = (SELECT MIN(t12_3.tdt) AS tdt
 FROM t12 as t12_3
 WHERE t12_3.tdt > t12_1.tdt)")
+
+
+dot product calculation example:
+
+library("lsa")
+# load training texts
+trm = textmatrix("trainingtexts/")
+trm = lw_bintf(trm) * gw_idf(trm) #
+weighting
+space = lsa(trm) # create LSA space
+# fold-in test and gold standard essays
+tem = textmatrix("essays/",
+vocabulary=rownames(trm))
+tem = lw_bintf(tem) * gw_idf(tem) #
+weighting
+tem_red = fold_in(tem, space)
+# score essay against gold standard
+cor(tem_red[,"gold.txt"],
+tem_red[,"E1.txt"]) # 0.7 
