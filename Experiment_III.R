@@ -69,6 +69,7 @@ fileList
 textTilize <- function(sourceFolderPath, targetFolderPath) {
   fileList <- as.list(list.files(path=sourceFolderPath))
   for (counter in 1:length(fileList)) {
+    print(as.character(fileList[[counter]]))
     python.exec(paste("url = \"/home/kingfish/proppian_function_language_models/Experiment/",as.character(fileList[[counter]]), "\"", sep="")  )
     # replace this folder above with sourceFolderPath reference
     python.exec("raw = urlopen(url).read()")
@@ -87,9 +88,10 @@ tgp <-"/home/kingfish/proppian_function_language_models/TextTiles/"
 textTilize(sfp,tfp)
 
 # TO DO =========> 
+#  * cleanup (MUST!!!)
 #  * loops for parameters for texttiling
 #  * use TRY EXCEPTION for graceful exception handling
-#  * classification methods: KNN, 
+#  * classification methods: KNN
 #  * strip out named entities with primitive RegExp search/replace for non-word initial capitals
 
 library("lsa")
