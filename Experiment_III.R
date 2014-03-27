@@ -63,28 +63,25 @@ length(fileList)
 fileList <- as.list(list.files(path=folderPath))
 fileList
 
-textTilize <- function(folderPath) {
-  fileList <- as.list(list.files(path=folderPath))
-  ########################
+textTilize <- function(sourceFolderPath, targetFolderPath) {
+  fileList <- as.list(list.files(path=sourceFolderPath))
   for (counter in 1:length(fileList)) {
-    #print(fileList[[counter]])
-    #fileList[counter]
-    #counter=38
     python.exec(paste("url = \"/home/kingfish/proppian_function_language_models/Experiment/",as.character(fileList[[counter]]), "\"", sep="")  )
+    # replace this folder above with sourceFolderPath reference
     python.exec("raw = urlopen(url).read()")
     python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width = 6, smoothing_rounds = 10)")
     python.get("raw")
     python.exec(paste("tiles = ttt.tokenize(raw)"))
     textTiles <- python.get("tiles")
     for (i in 1:length(textTiles)) {
-       writeLines(textTiles, paste(folderPath, "textTile", i, "txt", sep=""))
+       writeLines(textTiles, paste(tfp, as.character(fileList[[counter]]), "_textTile_", i, "txt", sep=""))
     }
   }
 }
 
-fp <- "/home/kingfish/proppian_function_language_models/Experiment/"
-
-textTilize(fp)
+sfp <- "/home/kingfish/proppian_function_language_models/Experiment/"
+tgp <-"/home/kingfish/proppian_function_language_models/TextTiles/"
+textTilize(sfp,tfp)
 
 
 
