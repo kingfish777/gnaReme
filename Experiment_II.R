@@ -88,4 +88,5 @@ test_gold_matrix_space = fold_in(test_gold_matrix, lsa_space)
 # score snippet against gold standard
 # remove subscripts for comparison matrix of all texts
 cor(test_gold_matrix_space[,"Villainy4.txt"], test_gold_matrix_space[,"Return1.txt"]) 
-
+#calculate mean correlation score of test snippet against training and gold snippets
+mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
