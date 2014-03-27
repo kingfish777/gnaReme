@@ -74,9 +74,9 @@ corpus <- Corpus(DirSource('.'))
 corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
 corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
 corpus <- tm_map(corpus, removeWords, c(stopwords("english"))) 
-#corpus <- tm_map(corpus, removePunctuation)
-#corpus <- tm_map(corpus, removeNumbers)
-#corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
 corpus <- tm_map(corpus, stripWhitespace)
 ########################
 # write corpus to local folder
@@ -106,3 +106,31 @@ text <- paste("espeak -v+whisper -k20 -p 79 -s 225 -f \"", "/home/hinckley/Publi
 # http://espeak.sourceforge.net/commands.html
 system(text)
 #python.exec("nltk.tokenize.texttiling.demo(text=None)")
+
+
+
+
+
+textTilize <- function(folderPath) {
+        originalwd <- getwd()
+        setwd(folderPath)
+        text <- system.file("texts", "txt", package="tm")
+        corpus <- Corpus(DirSource('.'))
+        corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+        corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+        corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+        corpus <- tm_map(corpus, removePunctuation)
+        corpus <- tm_map(corpus, removeNumbers)
+        corpus <- tm_map(corpus, tolower)
+        corpus <- tm_map(corpus, stripWhitespace)
+        ########################
+        for (counter in 1:corpus) {
+          python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width = 6, smoothing_rounds = 10)")
+          #similarity_method, 0, BLOCK_COMPARISON,
+          python.get("raw")
+          python.exec(paste("tiles = ttt.tokenize(raw)"))
+          zip
+          python.get("tiles")
+          writeLines(zip, paste(folderPath, "textTile", to.character(counter), "txt", sep=""))
+        }
+}
