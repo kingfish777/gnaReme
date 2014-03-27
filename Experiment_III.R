@@ -124,3 +124,9 @@ cor(test_gold_matrix_space, test_gold_matrix_space)
 
 # system("") 
 
+#multilabel classification
+#############################################################################
+# http://scikit-learn.org/dev/auto_examples/plot_multilabel.html            #
+#                                                                           #
+#############################################################################
+#############################################################################
