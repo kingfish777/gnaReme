@@ -27,6 +27,16 @@
 # PURPOSE: demonstrate how model can be used to determine the structure
 #                   of 'raw' magic tale narratives
 #
+#
+# HYPOTHESIS: relatively placed sections of formulaic content is more similar
+#             to each other than the particular larger work to which it came
+#
+#
+# corollary:  TextTiles of folk tales (content objects) are similar to 
+#            Proppian functions and could be used with other unsupervised
+#            machine learning algorithms to categorize folktales
+#
+#
 ######################################################################
 
 
@@ -40,6 +50,7 @@ python.exec("from nltk.corpus import PlaintextCorpusReader")
 python.exec("from urllib import urlopen")
 python.exec("import numpy")
 
+#CLEANUP!!!
 setwd("/home/kingfish/proppian_function_language_models/ProppModel-master")
 originalwd <- getwd()
 folderPath <- originalwd
@@ -83,7 +94,11 @@ sfp <- "/home/kingfish/proppian_function_language_models/Experiment/"
 tgp <-"/home/kingfish/proppian_function_language_models/TextTiles/"
 textTilize(sfp,tfp)
 
-
+# TO DO =========> 
+#  * loops for parameters for texttiling
+#  * use TRY EXCEPT
+#  * classification methods: KNN, 
+#  * 
 
 library("lsa")
 # load training texts
@@ -104,11 +119,3 @@ cor(test_gold_matrix_space, test_gold_matrix_space)
 mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
 
 
-
-
-# useful stuff
-# system('cp * Lack Experiment')
-# sqldf 
-# data.table
-# random
-# set.seed
