@@ -98,7 +98,7 @@ textTilize(sfp,tfp)
 #  * loops for parameters for texttiling
 #  * use TRY EXCEPT
 #  * classification methods: KNN, 
-#  * 
+#  * strip out named entities with primitive RegExp search/replace for non-word initial capitals
 
 library("lsa")
 # load training texts
