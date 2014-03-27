@@ -38,7 +38,7 @@
 ########################################################################
 ########################################################################
 #
-# ah, the wretcheness, the elegance of Python meets, well, R
+# O, the wretchedness: the elegance of Python meets, well, R
 #
 ########################################################################
 library(rPython)
@@ -87,7 +87,9 @@ python.exec("url = \"/home/hinckley/Public/doom/mm17.txt.txt\"")
 python.exec("raw = urlopen(url).read()")
 #python.exec("alice = nltk.corpus.gutenberg.raw('carroll-alice.txt')")
 #python.get("alice")
-#python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=4, similarity_method=0, stopwords=None, smoothing_method=[0], smoothing_width=2, smoothing_rounds=50, cutoff_policy=10, demo_mode=False)")
+#python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=4, 
+#similarity_method=0, stopwords=None, smoothing_method=[0], smoothing_width=2,
+#smoothing_rounds=50, cutoff_policy=10, demo_mode=False)")
 python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width = 6, smoothing_rounds = 10)")
 #similarity_method, 0, BLOCK_COMPARISON,
 python.get("raw")
