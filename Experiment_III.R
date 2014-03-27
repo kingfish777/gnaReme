@@ -1,40 +1,26 @@
 #######################################################################
-#EXPERIMENT III
+#EXPERIMENT IV (formerly EXPERIMENT III)
 # texttiling snippets of Russian magic tales (textTiling divides texts into "paragraphs"/topical parts)
 #
 #results would like something like this ===>
 #
 # each "raw" fairy tale resulting text tiles will be compared with language models of various functions:
-#TEXT 1
-#snippetLM         i     ii      iii     iv        v      vi     vii     vii     ix     x     xi      xii
-#initSituationLM .5  .001 .0002  .0003 .003 .05    .09   .0394  .01 .014 .1  .001
-#VillainyLM       .003 .8   .001   .02    .08   etc.
-#LackLM           .03   .3   .08 etc.
-#CardinalLM (combination of Villainy and Lack)
-#DonorFunctionLM
-#HeroReactionLM
-#AcquisitionOfMagicalAgentLM
-#DonorClusterLM(combination of last three)
-#ReturnLM
-#TransfigurationLM
-#WeddingLM
-#EpilogueLM
+#TEXT 1       TEXT 1                                   TEXT 2                      TEXT 3        etc.
+#                  1     ii      iii     iv        v      vi     i    ii    iii    iv    i  ii   iii iv
+#   i            1 .0002  .0003 .002 .05    .09   .0394  .01 .014 .1  .001
+#   ii          .0002   1       etc.
+#   iii         .03    .002      1  etc.
+#   iv           
 #
-#TEXT 2
-#snippet   i
-#etc.
+# PURPOSE:    demonstrate how this algorithm can be used to determine the structure
+#             of 'raw' magic tale narratives #
 #
-# PURPOSE: demonstrate how model can be used to determine the structure
-#                   of 'raw' magic tale narratives
+# HYPOTHESIS: relatively placed sections of formulaic content is more similar 
+#             to each other than the particular larger work from which it came
 #
-#
-# HYPOTHESIS: relatively placed sections of formulaic content is more similar
-#             to each other than the particular larger work to which it came
-#
-#
-# corollary:  TextTiles of folk tales (content objects) are similar to 
-#            Proppian functions and could be used with other unsupervised
-#            machine learning algorithms to categorize folktales
+# corollary:  in Russian magic tales, TextTiles of folk tales (content objects) 
+#             are similar to Proppian functions and could be used with other 
+#             unsupervised machine learning algorithms to categorize folktales
 #
 #
 ######################################################################
