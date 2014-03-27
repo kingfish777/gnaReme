@@ -72,20 +72,20 @@ FROM t12 as t12_3
 WHERE t12_3.tdt > t12_1.tdt)")
 
 
-dot product calculation example:
+#dot product calculation example:
 
 library("lsa")
 # load training texts
-trm = textmatrix("trainingtexts/")
-trm = lw_bintf(trm) * gw_idf(trm) #
-weighting
-space = lsa(trm) # create LSA space
-# fold-in test and gold standard essays
-tem = textmatrix("essays/",
-vocabulary=rownames(trm))
-tem = lw_bintf(tem) * gw_idf(tem) #
-weighting
-tem_red = fold_in(tem, space)
-# score essay against gold standard
-cor(tem_red[,"gold.txt"],
-tem_red[,"E1.txt"]) # 0.7 
+training_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Villainy")
+# calculate tfidf
+training_matrix = lw_bintf(training_matrix) * gw_idf(training_matrix) #weighting
+lsa_space = lsa(training_matrix) # create LSA space
+# fold-in test and gold standard snippets
+test_gold_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Lack", vocabulary=rownames(trm))
+#tem = tem[tem == NULL] <- 0 # set NULLs to zeroes
+test_gold_matrix = lw_bintf(test_gold_matrix) * gw_idf(test_gold_matrix) #weighting
+test_gold_matrix_space = fold_in(test_gold_matrix, lsa_space)
+# score snippet against gold standard
+# remove subscripts for comparison matrix of all texts
+cor(test_gold_matrix_space[,"Villainy4.txt"], test_gold_matrix_space[,"Return1.txt"]) 
+
