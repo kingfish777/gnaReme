@@ -106,13 +106,6 @@ mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
 
 
 
-
-
-
-
-
-
-
 # useful stuff
 # system('cp * Lack Experiment')
 # sqldf 
