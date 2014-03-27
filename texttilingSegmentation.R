@@ -108,7 +108,15 @@ system(text)
 #python.exec("nltk.tokenize.texttiling.demo(text=None)")
 
 
-
+library(rPython)
+library(tm)
+library(RTextTools)
+########################################################################
+python.exec("import nltk")
+python.exec("import nltk.corpus")
+python.exec("from nltk.corpus import PlaintextCorpusReader")
+python.exec("from urllib import urlopen")
+python.exec("import numpy")
 
 
 textTilize <- function(folderPath) {
@@ -125,8 +133,9 @@ textTilize <- function(folderPath) {
         corpus <- tm_map(corpus, stripWhitespace)
         ########################
         for (counter in 1:corpus) {
+          python.exec("url = \"/home/hinckley/Public/\"" + folderPath + "")
+          python.exec("raw = urlopen(url).read()")
           python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width = 6, smoothing_rounds = 10)")
-          #similarity_method, 0, BLOCK_COMPARISON,
           python.get("raw")
           python.exec(paste("tiles = ttt.tokenize(raw)"))
           zip
