@@ -31,7 +31,6 @@
 #
 ######################################################################
 
-
 library(rPython)
 library(tm)
 library(RTextTools)
@@ -61,8 +60,6 @@ tm::writeCorpus(x=corpus, path="/home/kingfish/proppian_function_language_models
 fPath = "/home/kingfish/proppian_function_language_models/Experiment"
 
 fileList <- list.files(path=fPath)
-mode(fileList)
-length(fileList)
 fileList <- as.list(list.files(path=folderPath))
 fileList
 
@@ -70,22 +67,24 @@ textTilize <- function(sourceFolderPath, targetFolderPath) {
   fileList <- as.list(list.files(path=sourceFolderPath))
   for (counter in 1:length(fileList)) {
     print(as.character(fileList[[counter]]))
-    python.exec(paste("url = \"/home/kingfish/proppian_function_language_models/Experiment/",as.character(fileList[[counter]]), "\"", sep="")  )
+    python.exec(paste("url = \"/home/kingfish/proppian_function_language_models/Experiment/",as.character(fileList[[counter]]), "\"", sep="") )
     # replace this folder above with sourceFolderPath reference
     python.exec("raw = urlopen(url).read()")
     python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width = 6, smoothing_rounds = 10)")
     python.get("raw")
-    python.exec(paste("tiles = ttt.tokenize(raw)"))
+    try(python.exec(paste("tiles = ttt.tokenize(raw)")))
     textTiles <- python.get("tiles")
     for (i in 1:length(textTiles)) {
-       writeLines(textTiles, paste(tfp, as.character(fileList[[counter]]), "_textTile_", i, "txt", sep=""))
+      #writeLines(textTiles[i], paste(targetFolderPath, "textTile_", i, "_", as.character(fileList[[counter]]), sep=""))
+      writeLines(textTiles[i], paste(targetFolderPath, i, "_", as.character(fileList[[counter]]), sep=""))
     }
   }
 }
 
 sfp <- "/home/kingfish/proppian_function_language_models/Experiment/"
-tgp <-"/home/kingfish/proppian_function_language_models/TextTiles/"
+tfp <-"/home/kingfish/proppian_function_language_models/TextTiles/"
 textTilize(sfp,tfp)
+
 
 # TO DO =========> 
 #  * cleanup (MUST!!!)
@@ -95,34 +94,38 @@ textTilize(sfp,tfp)
 #  * strip out named entities with primitive RegExp search/replace for non-word initial capitals
 #  * sentence-sized snippets? 
 
+setwd("/home/kingfish/proppian_function_language_models/TextTiles")
+text <- system.file("texts", "txt", package="tm")
+corpus <- Corpus(DirSource('.'))
+corpus <- tm_map(corpus, function(x) iconv(enc2utf8(x), sub = "byte"))
+corpus <- tm_map(corpus, removeWords, stopwords("SMART"))
+corpus <- tm_map(corpus, removeWords, c(stopwords("english")))
+corpus <- tm_map(corpus, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers)
+corpus <- tm_map(corpus, tolower)
+corpus <- tm_map(corpus, stripWhitespace)
+training_matrix <- DocumentTermMatrix(corpus,
+                                  control = list(weighting =
+                                                   function(x)
+                                                     weightTfIdf(x, normalize =
+                                                                   FALSE),
+                                                 stopwords = TRUE))
+
+
+dtm_complete <- hclust(dist(training_matrix), members=NULL, method="centroid")
+plot(dtm_complete, xlab="text from corpus", "ylab"="distance", main="Cluster Dendrogram \n of Various Russian Magic Tales")
+op = par(bg="#DDE3CA")
+plot(dtm_complete, col="#487AA1", col.main="#45ADA8", col.lab="#7C8071",
+     col.axis="#F38630", lwd=1, lty=1, sub='', hang=-1, axes=FALSE,
+     main = "Cluster Dendrogram Representing \n Magic Tale Similarity",
+     xlab="Magic Tale Name", ylab = "Distance given absence/presence of Proppian Functions/Narremes")
+nplot(dtm_complete, hang=1, axes = TRUE, ann=TRUE, main = "Cluster Dendrogram Representing Magic Tale Similarity",
+      xlab="Magic Tale Name", ylab = "Distance")
 
 
 
-########################
-########################
-########################
-# textiles to proppian functions
-
-library("lsa")
-# load training texts
-training_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Experiment")
-# calculate tfidf
-training_matrix = lw_bintf(training_matrix) * gw_idf(training_matrix) #weighting
-lsa_space = lsa(training_matrix) # create LSA space
-# fold-in test and gold standard snippets
-test_gold_matrix = textmatrix("/home/kingfish/proppian_function_language_models/Functions", vocabulary=rownames(training_matrix))
-test_gold_matrix = lw_bintf(test_gold_matrix) * gw_idf(test_gold_matrix) #weighting
-# set NULLs to zeroes
-test_gold_matrix[is.na(test_gold_matrix)] <- 0
-test_gold_matrix_space = fold_in(test_gold_matrix, lsa_space)
-# score snippet against gold standard
-# remove subscripts for comparison matrix of all texts
-cor(test_gold_matrix_space, test_gold_matrix_space)
-#calculate mean correlation score of test snippet against training and gold snippets
-#mean(cor(test_gold_matrix_space, test_gold_matrix_space[,"Wedding2.txt"]))
 
 
-# system("") 
 
 #multilabel classification
 #############################################################################
