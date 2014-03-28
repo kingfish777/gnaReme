@@ -85,7 +85,6 @@ sfp <- "/home/kingfish/proppian_function_language_models/Experiment/"
 tfp <-"/home/kingfish/proppian_function_language_models/TextTiles/"
 textTilize(sfp,tfp)
 
-
 # TO DO =========> 
 #  * cleanup (MUST!!!)
 #  * loops for parameters for texttiling
@@ -111,14 +110,6 @@ training_matrix <- DocumentTermMatrix(corpus,
                                                                    FALSE),
                                                  stopwords = TRUE))
 
-
-
-
-
-
-
-
-
 ##############clean corpus
 
 dtm_complete <- hclust(dist(training_matrix), members=NULL, method="centroid")
@@ -130,8 +121,6 @@ plot(dtm_complete, col="#487AA1", col.main="#45ADA8", col.lab="#7C8071",
      xlab="Magic Tale Name", ylab = "Distance given absence/presence of Proppian Functions/Narremes")
 nplot(dtm_complete, hang=1, axes = TRUE, ann=TRUE, main = "Cluster Dendrogram Representing Magic Tale Similarity",
       xlab="Magic Tale Name", ylab = "Distance")
-
-
 
 cleanCorpus <- function(corpus) {
     corpus.tmp <- tm_map(corpus, tolower)
@@ -152,10 +141,6 @@ word_freqs <- sort(rowSums(tdm), decreasing=TRUE)
 length(word_freqs)
 glossary <- PlainTextDocument(names(word_freqs))
 corpus.fin <- tm_map(corpus, stemCompletion, dictionary=glossary, type="first")
-
-
-
-
 
 #multilabel classification
 #############################################################################
