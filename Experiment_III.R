@@ -112,6 +112,15 @@ training_matrix <- DocumentTermMatrix(corpus,
                                                  stopwords = TRUE))
 
 
+
+
+
+
+
+
+
+##############clean corpus
+
 dtm_complete <- hclust(dist(training_matrix), members=NULL, method="centroid")
 plot(dtm_complete, xlab="text from corpus", "ylab"="distance", main="Cluster Dendrogram \n of Various Russian Magic Tales")
 op = par(bg="#DDE3CA")
@@ -122,6 +131,27 @@ plot(dtm_complete, col="#487AA1", col.main="#45ADA8", col.lab="#7C8071",
 nplot(dtm_complete, hang=1, axes = TRUE, ann=TRUE, main = "Cluster Dendrogram Representing Magic Tale Similarity",
       xlab="Magic Tale Name", ylab = "Distance")
 
+
+
+cleanCorpus <- function(corpus) {
+    corpus.tmp <- tm_map(corpus, tolower)
+    corpus.tmp <- tm_map(corpus.tmp, removePunctuation)
+    corpus.tmp <- tm_map(corpus.tmp, removeWords, stopwords("english"))
+    corpus.tmp <- tm_map(corpus.tmp, stripWhitespace)
+    corpus.tmp <- tm_map(corpus.tmp, stemDocument)
+  return(corpus.tmp)
+}
+
+corpus <- cleanCorpus(corpus)
+
+tdm <- TermDocumentMatrix(corpus)
+tdm <- removeSparseTerms(tdm, 0.99)
+tdm <- as.matrix(tdm)
+
+word_freqs <- sort(rowSums(tdm), decreasing=TRUE)
+length(word_freqs)
+glossary <- PlainTextDocument(names(word_freqs))
+corpus.fin <- tm_map(corpus, stemCompletion, dictionary=glossary, type="first")
 
 
 
