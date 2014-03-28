@@ -105,3 +105,6 @@ python.exec("ttt = nltk.tokenize.TextTilingTokenizer(w=7, k=3, smoothing_width =
 # http://espeak.sourceforge.net/commands.html
 #system(text)
 #python.exec("nltk.tokenize.texttiling.demo(text=None)")
+
+
+# bring in PFTML to use ML algs to apply labels
