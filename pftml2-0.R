@@ -1,10 +1,9 @@
+<!ELEMENT Corpus (Folktale+)>
 <!ELEMENT Folktale (Move+)>
 <!ATTLIST Folktale
 	Title CDATA #REQUIRED
 >
-
 <!--      
-
  "Morphologically, a tale (skazka) may be termed any development proceeding 
  from villainy (A) or a lack (a), through intermediary functions to marriage (W*),  
  or to other functions employed as a denouement.  Terminal functions are at  times 
@@ -16,7 +15,6 @@
  number of moves corresponds to the number of tales.  Special devices of parallelism,  
  repetitions, etc., lead to the fact that one tale may be composed of several  moves." 
   pg. 92, "the Ways in which Stories are combined" -->
-
 <!ELEMENT Move (Preparation?, 
 	(Villainy | 
 	Lack)?, 
@@ -32,7 +30,7 @@
 	Return?, 
 	PursuitRescueOfHero?, 
 	UnrecognizedArrival?, 
-	ClaimsOfFalseHero? 
+	ClaimsOfFalseHero?, 
 	LiquidationOfLack?, 
 	Return?, 
 	PursuitRescueOfHero?, 
@@ -52,9 +50,7 @@
 	Wedding?, 
 	AlienForms?, 
 	Return?, 
-	Epilogue?>
-<!-- CONTENT MODEL -->
-<!ELEMENT Preparation>
+	Epilogue?)>
 <!ELEMENT Preparation (#PCDATA)>
 <!ELEMENT Villainy (#PCDATA)>
 <!ELEMENT Lack (#PCDATA)>
@@ -62,6 +58,7 @@
 <!ELEMENT ConsentToCounteraction (#PCDATA)>
 <!ELEMENT Departure (#PCDATA)>
 <!ELEMENT DonorFunctions (#PCDATA)>
+<!ELEMENT Transference (#PCDATA)>
 <!ELEMENT StruggleVictory (#PCDATA)>
 <!ELEMENT LiquidationOfLack (#PCDATA)>
 <!ELEMENT Return (#PCDATA)>
