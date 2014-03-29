@@ -1,4 +1,7 @@
-Strategy: 
+Workflow:
 
-use textTiling to PftMLicize new and improved PFTML corpus.
+ * create more generalized PftML DTD
+ * use textTiling to PftMLicize new and improved PFTML corpus using Java XML editor
+ * create models for each function (label/markup of TextTile)
+ * sequential/hierarchical? HMM
 
