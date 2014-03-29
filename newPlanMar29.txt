@@ -1,8 +1,9 @@
-Workflow:
-
- * to improve on garbage in / garbage out scenario ...
- * create more generalized PftML DTD
- * use textTiling to PftMLicize new and improved PFTML corpus using Java XML editor
- * create models for each function (label/markup of TextTile)
- * sequential/hierarchical? HMM
+Workflow (to improve on garbage in / garbage out scenario) ...
+1. * create more generalized PftML DTD
+   * use textTiling to PftMLicize new and improved PFTML corpus using Java XML editor
+ 
+2. * create models for each function (label/markup of TextTile)
+   [* sequential/hierarchical? HMMs ... only linear, sequential for now]
+   
+3. SVM, etc. away
 
