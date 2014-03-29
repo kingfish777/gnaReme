@@ -1,0 +1,4 @@
+Strategy: 
+
+use textTiling to PftMLicize new and improved PFTML corpus.
+
