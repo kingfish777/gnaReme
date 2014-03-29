@@ -16,8 +16,7 @@
  repetitions, etc., lead to the fact that one tale may be composed of several  moves." 
   pg. 92, "the Ways in which Stories are combined" -->
 <!ELEMENT Move (Preparation?, 
-	(Villainy | 
-	Lack)?, 
+	CardinalFunction?, 
 	ConnectiveIncident?, 
 	ConsentToCounteraction?, 
 	Move?, 
@@ -52,8 +51,7 @@
 	Return?, 
 	Epilogue?)>
 <!ELEMENT Preparation (#PCDATA)>
-<!ELEMENT Villainy (#PCDATA)>
-<!ELEMENT Lack (#PCDATA)>
+<!ELEMENT CardinalFunction (#PCDATA)>
 <!ELEMENT ConnectiveIncident (#PCDATA)>
 <!ELEMENT ConsentToCounteraction (#PCDATA)>
 <!ELEMENT Departure (#PCDATA)>
