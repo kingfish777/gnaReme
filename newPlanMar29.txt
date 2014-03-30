@@ -11,7 +11,8 @@ Workflow (to improve on garbage in / garbage out scenario) ...
  
  labeling of formulaic elements
  
- semi-supervised labeling of content objects in linearly segmented discourse to denude formulaity in narrative 
+ semi-supervised labeling of content objects in linearly segmented discourse to denude formulaity in narrative
+  using TextTiling, KNN, ...
 
 * Renear
 * Jurafsky & Martin
