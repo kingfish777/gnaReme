@@ -1,6 +1,6 @@
 Workflow (to improve on garbage in / garbage out scenario) ...
 1. * create more generalized PftML DTD
-   * use textTiling to PftMLicize new and improved PFTML corpus using Java XML editor
+   * use textTiling to PftMLicize new and improved PFTML corpus for English tales
  
 2. * create models for each function (label/markup of TextTile)
    [* sequential/hierarchical? HMMs ... only linear, sequential for now]
@@ -8,3 +8,16 @@ Workflow (to improve on garbage in / garbage out scenario) ...
 3. SVM, etc. away
 
  ----------> narrative is FORMULAIC
+ 
+ labeling of formulaic elements
+ 
+ semi-supervised labeling of content objects in linearly segmented discourse to denude formulaity in narrative 
+
+* Renear
+* Jurafsky & Martin
+* Propp
+* Hearst, Marti
+* Afanas'ev
+* Hornik
+* Malec
+* Lendvai
