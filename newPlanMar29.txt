@@ -5,7 +5,7 @@ Workflow (to improve on garbage in / garbage out scenario) ...
 2. * create models for each function (label/markup of TextTile)
    [* sequential/hierarchical? HMMs ... only linear, sequential for now]
    
-3. SVM, etc. away
+3. SVM, KNN, etc. away
 
  ----------> narrative is FORMULAIC
  
