@@ -21,3 +21,8 @@ Workflow (to improve on garbage in / garbage out scenario) ...
 * Hornik
 * Malec
 * Lendvai
+
+ ... TextTiling ... successfully used to improve performance in IR tasks
+ 
+  ... discourse structure ... van Dijk
+ 
