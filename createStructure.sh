@@ -1,5 +1,8 @@
 #!/bin/sh
-
+#mkdir /data
+#cd /data
+#mkdir raw_data
+#mkdir proppian_function_language_models
 echo "creating top level folder"
 mkdir proppian_function_language_models
 cd proppian_function_language_models
