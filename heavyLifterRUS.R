@@ -21,7 +21,7 @@ library(tm)
 library(RTextTools)
 library(ape)
 #url <- "http://clover.slavic.pitt.edu/sam/propp/have_a_little_byte/magicgeese.xml"
-setwd("/home/kingfish")
+setwd("/amanuensis/data/proppian_function_language_models/")
 doc <- "Corpus_Rus.xml"
 tale <- xmlTreeParse(doc, useInternal = T)
 tale
